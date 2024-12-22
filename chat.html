@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Request Example</title>
+</head>
+<body>
+    <h1>Send API Request</h1>
+
+    <label for="serverUrl">Server URL:</label>
+    <input type="text" id="serverUrl" placeholder="Enter server URL"><br><br>
+
+    <label for="prompt">Prompt:</label>
+    <input type="text" id="prompt" placeholder="Enter your prompt"><br><br>
+
+    <button id="sendRequest">Send Request</button>
+
+    <h2>Response:</h2>
+    <pre id="responseOutput">(No response yet)</pre>
+
+    <script>
+        document.getElementById('sendRequest').addEventListener('click', async function() {
+            const serverUrl = document.getElementById('serverUrl').value;
+            const prompt = document.getElementById('prompt').value;
+
+            if (!serverUrl || !prompt) {
+                alert('Please enter both Server URL and Prompt.');
+                return;
+            }
+
+            const payload = {
+                prompt: prompt,
+                max_length: 128
+            };
+
+            const responseOutput = document.getElementById('responseOutput');
+
+            try {
+                const response = await fetch(`${serverUrl}/completion`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    responseOutput.textContent = data.content || "(No content in response)";
+                } else {
+                    responseOutput.textContent = `Error: ${response.status}`;
+                }
+            } catch (error) {
+                responseOutput.textContent = `Request failed: ${error.message}`;
+            }
+        });
+    </script>
+</body>
+</html>
