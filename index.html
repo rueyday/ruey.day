@@ -3,93 +3,165 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ruey's Personal Website</title>
+    <title>Ruey Day</title>
     <style>
+        /* General Styles */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f9;
-            color: #333;
+            background-color: #121212;
+            color: #fff;
+            overflow-x: hidden;
         }
+
+        /* Header */
         header {
-            background-color: #4CAF50;
-            color: white;
-            padding: 1em 0;
+            background: linear-gradient(90deg, #0f0c29, #302b63, #24243e);
+            color: #00ffcc;
             text-align: center;
+            padding: 2em 0;
+            border-bottom: 2px solid #00ffcc;
         }
+        header h1 {
+            font-size: 3.5em;
+            margin: 0;
+            font-weight: 700;
+            font-family: 'Poppins', sans-serif;
+            color: #e6f7ff;
+            text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc;
+        }
+        header p {
+            font-size: 1.2em;
+            color: #b3d9d9;
+        }
+
+        /* Navigation */
         nav {
             display: flex;
             justify-content: center;
-            background-color: #333;
+            background-color: #1e1e1e;
+            padding: 10px 0;
         }
         nav a {
-            color: white;
+            color: #00ffcc;
             text-decoration: none;
-            padding: 14px 20px;
-            display: block;
+            margin: 0 15px;
+            padding: 10px 20px;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
         }
         nav a:hover {
-            background-color: #575757;
+            border-color: #00ffcc;
+            box-shadow: 0 0 10px #00ffcc;
         }
+
+        /* Main Content */
         main {
-            padding: 20px;
+            padding: 30px;
         }
         section {
-            margin: 20px 0;
+            margin: 40px 0;
         }
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
+        section h2 {
+            font-size: 2.2em;
+            color: #00ffcc;
+            border-bottom: 2px solid #00ffcc;
+            display: inline-block;
+            margin-bottom: 10px;
         }
+        section p, section ul {
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+        section ul li a {
+            color: #00ffcc;
+            text-decoration: none;
+        }
+        section ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Profile Image */
         .profile-img {
             display: block;
             margin: 0 auto;
             border-radius: 50%;
             width: 150px;
             height: 150px;
+            box-shadow: 0 0 15px #00ffcc;
         }
+
+        /* Chat Button */
         .chat-button {
             display: block;
-            width: 200px;
+            width: 220px;
             margin: 20px auto;
-            padding: 10px;
-            background-color: #4CAF50;
-            color: white;
+            padding: 15px;
+            background-color: #00ffcc;
+            color: #121212;
             text-align: center;
+            font-size: 18px;
+            font-weight: bold;
             text-decoration: none;
-            font-size: 16px;
             border: none;
-            border-radius: 5px;
+            border-radius: 25px;
             cursor: pointer;
+            transition: all 0.3s ease;
         }
         .chat-button:hover {
-            background-color: #45a049;
+            background-color: #008f73;
+            box-shadow: 0 0 15px #00ffcc;
+        }
+
+        /* Footer */
+        footer {
+            background: #1e1e1e;
+            color: #00ffcc;
+            text-align: center;
+            padding: 15px 0;
+            font-size: 0.9em;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            border-top: 2px solid #00ffcc;
+        }
+
+        /* Animations */
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc, 0 0 20px #00ffcc;
+            }
+            to {
+                text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc, 0 0 30px #00ffcc;
+            }
         }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="icon.png" type="image/png">
 </head>
 <body>
     <header>
-        <h1>Welcome to Ruey's Personal Website</h1>
+        <h1>Ruey  Day</h1>
         <p>Robotics Engineer | AI Enthusiast | Creative Thinker</p>
     </header>
 
     <nav>
-        <a href="#about">About Me</a>
+        <a href="#education">Education</a>
+        <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
+        <a href="#skills">Skills</a>
     </nav>
 
     <main>
-        <section id="about">
-            <h2>About Me</h2>
-            <img src="profile.jpg" alt="Ruey's profile picture" class="profile-img">
-            <p>Hi, I'm Ruey! I'm a robotics engineer with a passion for computer vision, embedded systems, and AI. I enjoy building innovative solutions and exploring creative endeavors like video game development.</p>
+        <section id="education">
+            <h2>Education</h2>
+            <p><strong>University of Michigan, Ann Arbor, MI</strong> | GPA: 3.9/4.0<br>Aug, 2023 - May 2026</p>
+            <p><em>BSE in Robotics, Minor in Electrical Engineering and Computer Science</em></p>
+            <p><strong>Coursework:</strong> Computer Organization/Foundations, Robot Operating System, Dynamics and Simulation, Active SLAM, Electronic Circuits, Linear Algebra, Data Structure/Algorithms, Discrete Mathematics, Multivariable Calculus, Statistics</p>
+            <p><strong>Certifications:</strong> Data Science, Machine Learning, Natural Language Processing, Image Manipulation, Database, SQL, Thermodynamics</p>
+            <p><strong>Honors/Awards:</strong> 2023-2024 Dean's Honor List, 3rd place in the 2024 Intelligent Ground Vehicle Competition, Victors Award</p>
         </section>
 
         <section id="projects">
@@ -101,20 +173,52 @@
                 <li><a href="projects/mbot-challenge.html">MBot Setpoint Challenge</a></li>
             </ul>
         </section>
+        
         <section>
             <button class="chat-button" onclick="window.location.href='chat.html'">Go to Chat</button>
         </section>
-        <section id="contact">
-            <h2>Contact</h2>
-            <p>Email: ruey@example.com</p>
-            <p>LinkedIn: <a href="https://www.linkedin.com/in/ruey">linkedin.com/in/ruey</a></p>
+
+        <section id="experience">
+            <h2>Work Experience</h2>
+            <p><strong>Stryker</strong> | Robotic Engineering Intern<br>Jan, 2025 - May 2025 | Ann Arbor, MI</p>
+            <ul>
+                <li>Designed and developed an autonomous hospital stretcher to free up caregiver resources.</li>
+            </ul>
+
+            <p><strong>Electrical and Computer Engineering, University of Michigan</strong> | Research Assistant<br>July 2024 - Present | Ann Arbor, MI</p>
+            <ul>
+                <li>Conducted experiments for multi-directional loosely linked archetype models to enhance perceptually enabled task guidance.</li>
+                <li>Set up environment, router, Linux terminal, HoloLens 2 integration, and AI assistance for participants.</li>
+                <li>Troubleshot issues and converted performance data into JSON format.</li>
+                <li>Fine-tuned retrieval models to improve task-guidance AI assistant quality.</li>
+            </ul>
+
+            <p><strong>University of Michigan Office of New Student Programs</strong> | Orientation Leader<br>May 2024 - Aug, 2024 | Ann Arbor, MI</p>
+            <ul>
+                <li>Prepared and organized orientation programs for over 1,000 students and supporters daily.</li>
+                <li>Led tours introducing campus environment and traditions to incoming families.</li>
+            </ul>
         </section>
 
-        
+        <section id="projects">
+            <h2>Projects</h2>
+            <ul>
+                <li><strong>Customized AI Copilot</strong>: Fine-tuned LLaMA model with personal data for an interactive chatbot.</li>
+                <li><strong>University of Michigan Autonomous Robotics Vehicle</strong>: Enhanced vehicle control systems, remote control cybersecurity, and developed PCBs.</li>
+                <li><strong>Starship Craft</strong>: Created a 3D sandbox space combat game using Blender and Unity.</li>
+            </ul>
+        </section>
+
+        <section id="skills">
+            <h2>Technical Skills</h2>
+            <p><strong>Programming:</strong> C/C++/C#, Python, Java, R, MATLAB, Julia, HTML, CSS, JavaScript, Bash/Shell, PHP, Perl, Assembly</p>
+            <p><strong>Development Tools:</strong> ROS/ROS2, Docker, Unity, TensorFlow, PostgreSQL</p>
+            <p><strong>Software:</strong> Altium, Blender, LTspice, Fusion 360</p>
+        </section>
     </main>
 
     <footer>
-        <p>&copy; 2024 Ruey's Personal Website</p>
+        &copy; 2024 Ruey's Personal Website. All Rights Reserved.
     </footer>
 </body>
 </html>

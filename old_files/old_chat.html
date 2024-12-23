@@ -1,23 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>API Request Example</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ruey Day</title>
+        <style>
+            /* General Styles */
+            body {
+                font-family: 'Poppins', sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #121212;
+                color: #fff;
+                overflow-x: hidden;
+            }
+    
+            /* Header */
+            header {
+                background: linear-gradient(90deg, #0f0c29, #302b63, #24243e);
+                color: #00ffcc;
+                text-align: center;
+                padding: 2em 0;
+                border-bottom: 2px solid #00ffcc;
+            }
+            header h1 {
+                font-size: 3.5em;
+                margin: 0;
+                font-weight: 700;
+                font-family: 'Poppins', sans-serif;
+                color: #e6f7ff;
+                text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc;
+            }
+            header p {
+                font-size: 1.2em;
+                color: #b3d9d9;
+            }
+    
+            /* Navigation */
+            nav {
+                display: flex;
+                justify-content: center;
+                background-color: #1e1e1e;
+                padding: 10px 0;
+            }
+            nav a {
+                color: #00ffcc;
+                text-decoration: none;
+                margin: 0 15px;
+                padding: 10px 20px;
+                border: 2px solid transparent;
+                transition: all 0.3s ease;
+                text-transform: uppercase;
+            }
+            nav a:hover {
+                border-color: #00ffcc;
+                box-shadow: 0 0 10px #00ffcc;
+            }
+    
+            /* Main Content */
+            main {
+                padding: 30px;
+            }
+            section {
+                margin: 40px 0;
+            }
+            section h2 {
+                font-size: 2.2em;
+                color: #00ffcc;
+                border-bottom: 2px solid #00ffcc;
+                display: inline-block;
+                margin-bottom: 10px;
+            }
+            section p, section ul {
+                font-size: 1.1em;
+                line-height: 1.8;
+            }
+            section ul li a {
+                color: #00ffcc;
+                text-decoration: none;
+            }
+            section ul li a:hover {
+                text-decoration: underline;
+            }
+    
+            /* Profile Image */
+            .profile-img {
+                display: block;
+                margin: 0 auto;
+                border-radius: 50%;
+                width: 150px;
+                height: 150px;
+                box-shadow: 0 0 15px #00ffcc;
+            }
+    
+            /* Chat Button */
+            .chat-button {
+                display: block;
+                width: 220px;
+                margin: 20px auto;
+                padding: 15px;
+                background-color: #00ffcc;
+                color: #121212;
+                text-align: center;
+                font-size: 18px;
+                font-weight: bold;
+                text-decoration: none;
+                border: none;
+                border-radius: 25px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+            }
+            .chat-button:hover {
+                background-color: #008f73;
+                box-shadow: 0 0 15px #00ffcc;
+            }
+    
+            /* Footer */
+            footer {
+                background: #1e1e1e;
+                color: #00ffcc;
+                text-align: center;
+                padding: 15px 0;
+                font-size: 0.9em;
+                position: fixed;
+                bottom: 0;
+                width: 100%;
+                border-top: 2px solid #00ffcc;
+            }
+    
+            /* Animations */
+            @keyframes glow {
+                from {
+                    text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc, 0 0 20px #00ffcc;
+                }
+                to {
+                    text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc, 0 0 30px #00ffcc;
+                }
+            }
+        </style>
+        <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    </head>
 <body>
     <h1>Send API Request</h1>
+
+    <label for="prompt">Prompt:</label>
+    <input type="text" id="prompt" placeholder="Enter your prompt"><br><br>
+
     <button id="sendRequest">Send Request</button>
 
-    <script>
-        document.getElementById('sendRequest').addEventListener('click', async function() {
-            const serverUrl = "https://c6c5-34-16-171-9.ngrok-free.app";
-            const payload = {
-                prompt: "Where should I travel?",
-                max_length: 128
-            };
+    <h2>Response:</h2>
+    <pre id="responseOutput">(No response yet)</pre>
+
+    <script type="module">
+        import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
+
+        // Initialize Supabase
+        const supabaseUrl = "https://ifqbibrmglntszznfzso.supabase.co";
+        const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlmcWJpYnJtZ2xudHN6em5menNvIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTczNDcyMjk3NCwiZXhwIjoyMDUwMjk4OTc0fQ.mHsjqBYQOUKruA5zM1LDDDsJVoujqvuAp7blvNrVRMM";
+        const supabase = createClient(supabaseUrl, supabaseKey);
+
+        document.getElementById('sendRequest').addEventListener('click', async function () {
+            const prompt = document.getElementById('prompt').value.trim();
+            const responseOutput = document.getElementById('responseOutput');
+
+            // Validate input
+            if (!prompt) {
+                alert('Please enter a prompt.');
+                return;
+            }
 
             try {
+                responseOutput.textContent = "Fetching server URL...";
+
+                // Fetch server URL from Supabase
+                const { data, error } = await supabase
+                    .from('links')
+                    .select('link')
+                    .single();
+
+                if (error || !data) {
+                    throw new Error(error?.message || "Failed to fetch server URL");
+                }
+
+                const serverUrl = data.link;
+
+                console.log("Fetched serverUrl:", serverUrl);
+                responseOutput.textContent = "Sending request...";
+
+                // Prepare payload
+                const payload = {
+                    prompt: prompt,
+                    max_length: 128
+                };
+
+                // Send API request
                 const response = await fetch(`${serverUrl}/completion`, {
                     method: 'POST',
                     headers: {
@@ -27,13 +203,13 @@
                 });
 
                 if (response.ok) {
-                    const data = await response.json();
-                    console.log(data);
+                    const responseData = await response.json();
+                    responseOutput.textContent = responseData.content || "(No content in response)";
                 } else {
-                    console.error('Error:', response.status);
+                    responseOutput.textContent = `Error: ${response.status} - ${response.statusText}`;
                 }
             } catch (error) {
-                console.error('Request failed:', error);
+                responseOutput.textContent = `Request failed: ${error.message}`;
             }
         });
     </script>
