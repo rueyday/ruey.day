@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Game</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(90deg, #0f0c29, #302b63, #24243e);
+            color: #00ffcc;
+            text-align: center;
+            padding: 2em 0;
+            border-bottom: 2px solid #00ffcc;
+        }
+        header h1 {
+            font-size: 3.5em;
+            margin: 0;
+            font-weight: 700;
+            color: #e6f7ff;
+            text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc;
+        }
+        header p {
+            font-size: 1.2em;
+            color: #b3d9d9;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #1e1e1e;
+            padding: 10px 0;
+        }
+        nav a {
+            color: #00ffcc;
+            text-decoration: none;
+            margin: 0 15px;
+            padding: 10px 20px;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+        nav a:hover {
+            border-color: #00ffcc;
+            box-shadow: 0 0 10px #00ffcc;
+        }
+
+        /* Main Content */
+        main {
+            padding: 30px;
+            text-align: center;
+        }
+        .game-container {
+            margin: 20px auto;
+            padding: 20px;
+            border: 2px solid #00ffcc;
+            border-radius: 15px;
+            background-color: #1e1e1e;
+            box-shadow: 0 0 15px #00ffcc;
+            width: 80%;
+            max-width: 600px;
+        }
+        .game-container h2 {
+            font-size: 2.2em;
+            color: #00ffcc;
+            margin-bottom: 10px;
+        }
+        .game-container p {
+            font-size: 1.1em;
+        }
+        .game-button {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            padding: 15px;
+            background-color: #00ffcc;
+            color: #121212;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .game-button:hover {
+            background-color: #008f73;
+            box-shadow: 0 0 15px #00ffcc;
+        }
+
+        /* Game Area */
+        #game-area {
+            position: relative;
+            height: 300px;
+            background-color: #24243e;
+            overflow: hidden;
+            border: 2px solid #00ffcc;
+            margin-top: 20px;
+        }
+
+        /* Circle */
+        #circle {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #00ffcc;
+            transition: left 0.8s ease, top 0.8s ease;
+        }
+
+        /* Footer */
+        footer {
+            background: #1e1e1e;
+            color: #00ffcc;
+            text-align: center;
+            padding: 15px 0;
+            font-size: 0.9em;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            border-top: 2px solid #00ffcc;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Interactive Game</h1>
+        <p>Embark on an adventure of discovery and challenges!</p>
+    </header>
+
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Game</a>
+    </nav>
+
+    <main>
+        <div class="game-container">
+            <h2>Click the Circle</h2>
+            <p>Click on the moving circle as many times as you can in 30 seconds!</p>
+            <div id="game-area">
+                <div id="circle"></div>
+            </div>
+            <p id="score">Score: 0</p>
+            <button class="game-button" onclick="startGame()">Start Game</button>
+        </div>
+    </main>
+
+    <footer>
+        &copy; 2024 Interactive Game. All Rights Reserved.
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
