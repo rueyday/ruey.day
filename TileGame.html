@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tile Matching Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+    #game-container {
+      position: relative;
+      width: 400px;
+      height: 400px;
+      margin: 20px auto;
+      border: 2px solid #ccc;
+      background-color: #fff;
+      overflow: hidden;
+    }
+    #bottom-slots {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .slot {
+      width: 50px;
+      height: 50px;
+      border: 2px dashed #ccc;
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #f9f9f9;
+      box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .icon {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      color: #fff;
+      cursor: pointer;
+      transition: transform 0.2s, top 0.5s, left 0.5s;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+    }
+    .icon.type1 {
+      background-color: #ff6961;
+    }
+    .icon.type2 {
+      background-color: #61b4ff;
+    }
+    .icon.type3 {
+      background-color: #77dd77;
+    }
+    #controls {
+      margin: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Tile Matching Game</h1>
+  <div id="game-container"></div>
+  <div id="bottom-slots">
+    <div class="slot" data-index="0"></div>
+    <div class="slot" data-index="1"></div>
+    <div class="slot" data-index="2"></div>
+    <div class="slot" data-index="3"></div>
+    <div class="slot" data-index="4"></div>
+    <div class="slot" data-index="5"></div>
+    <div class="slot" data-index="6"></div>
+  </div>
+  <div id="controls">
+    <button id="restart-btn">Restart</button>
+  </div>
+  <script>
+    const gameContainer = document.getElementById("game-container");
+    const slots = Array.from(document.querySelectorAll(".slot"));
+    const restartBtn = document.getElementById("restart-btn");
+
+    const ICON_TYPES = ["type1", "type2", "type3"];
+    const TOTAL_PAIRS = 6;
+    const iconCounts = { type1: 0, type2: 0, type3: 0 };
+
+    function createIcon(type) {
+      const icon = document.createElement("div");
+      icon.classList.add("icon", type);
+      
+      // Ensure no overlap
+      let validPosition = false;
+      let top, left;
+
+      while (!validPosition) {
+        top = Math.random() * (gameContainer.clientHeight - 50);
+        left = Math.random() * (gameContainer.clientWidth - 50);
+
+        validPosition = checkPosition(top, left);
+      }
+
+      icon.style.top = `${top}px`;
+      icon.style.left = `${left}px`;
+
+      icon.addEventListener("click", () => {
+        moveToBottom(icon);
+      });
+
+      gameContainer.appendChild(icon);
+    }
+
+    function checkPosition(top, left) {
+      const icons = Array.from(document.querySelectorAll(".icon"));
+      for (const icon of icons) {
+        const rect = icon.getBoundingClientRect();
+        const iconLeft = parseFloat(icon.style.left);
+        const iconTop = parseFloat(icon.style.top);
+
+        if (
+          Math.abs(left - iconLeft) < 50 &&
+          Math.abs(top - iconTop) < 50
+        ) {
+          return false;
+        }
+      }
+      return true;
+    }
+
+    function moveToBottom(icon) {
+      const emptySlot = slots.find(slot => !slot.firstChild);
+
+      if (emptySlot) {
+        emptySlot.appendChild(icon);
+        icon.style.position = "static";
+        checkForMatch();
+      }
+    }
+
+    function checkForMatch() {
+      const filledSlots = slots.filter(slot => slot.firstChild);
+      const iconsInSlots = filledSlots.map(slot => slot.firstChild.classList[1]);
+
+      ICON_TYPES.forEach(type => {
+        const matches = iconsInSlots.filter(iconType => iconType === type);
+        if (matches.length === 3) {
+          filledSlots.forEach(slot => {
+            const child = slot.firstChild;
+            if (child && child.classList.contains(type)) {
+              slot.innerHTML = "";
+              iconCounts[type]--;
+            }
+          });
+        }
+      });
+
+      if (filledSlots.length === 7) {
+        alert("Game Over! No more matches.");
+        restartGame();
+      }
+    }
+
+    function restartGame() {
+      gameContainer.innerHTML = "";
+      slots.forEach(slot => (slot.innerHTML = ""));
+      Object.keys(iconCounts).forEach(type => (iconCounts[type] = 0));
+
+      for (let i = 0; i < TOTAL_PAIRS; i++) {
+        ICON_TYPES.forEach(type => {
+          createIcon(type);
+          iconCounts[type]++;
+        });
+      }
+    }
+
+    restartBtn.addEventListener("click", restartGame);
+
+    restartGame();
+  </script>
+</body>
+</html>

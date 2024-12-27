@@ -1,40 +1,27 @@
-function moveCircle() {
-    const gameAreaRect = gameArea.getBoundingClientRect();
-    const maxX = gameAreaRect.width - 50;
-    const maxY = gameAreaRect.height - 50;
+const canvas = document.getElementById("gameCanvas");
+const ctx = canvas.getContext("2d");
 
-    const randomX = Math.random() * maxX;
-    const randomY = Math.random() * maxY;
+let player = { x: 50, y: 50, size: 20, speed: 5 };
 
-    circle.style.left = `${randomX}px`;
-    circle.style.top = `${randomY}px`;
+function drawPlayer() {
+    ctx.fillStyle = "blue";
+    ctx.fillRect(player.x, player.y, player.size, player.size);
 }
 
-function startGame() {
-    if (isPlaying) return;
-
-    isPlaying = true;
-    score = 0;
-    scoreDisplay.textContent = `Score: ${score}`;
-
-    // Start smooth circle movement
-    const interval = setInterval(() => {
-        if (!isPlaying) {
-            clearInterval(interval);
-            alert(`Game Over! Your final score is ${score}.`);
-        } else {
-            moveCircle();
-        }
-    }, 1000);
-
-    setTimeout(() => {
-        isPlaying = false;
-    }, 30000);
+function updatePlayer() {
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowRight") player.x += player.speed;
+        if (e.key === "ArrowLeft") player.x -= player.speed;
+        if (e.key === "ArrowUp") player.y -= player.speed;
+        if (e.key === "ArrowDown") player.y += player.speed;
+    });
 }
 
-circle.addEventListener('click', () => {
-    if (isPlaying) {
-        score++;
-        scoreDisplay.textContent = `Score: ${score}`;
-    }
-});
+function gameLoop() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    drawPlayer();
+    requestAnimationFrame(gameLoop);
+}
+
+updatePlayer();
+gameLoop();
