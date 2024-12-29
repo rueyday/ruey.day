@@ -20,7 +20,7 @@
             background: linear-gradient(90deg, #0f0c29, #302b63, #24243e);
             color: #00ffcc;
             text-align: center;
-            padding: 2em 0;
+            padding: 1.2em 0;
             border-bottom: 2px solid #00ffcc;
         }
         header h1 {
@@ -148,21 +148,24 @@
     </header>
 
     <nav>
-        <a href="#education">Education</a>
-        <a href="#experience">Experience</a>
+        <a href="#about-me">About Me</a>
         <a href="#projects">Projects</a>
         <a href="#skills">Skills</a>
         <a href="#game">Game</a>
     </nav>
 
     <main>
-        <section id="education">
-            <h2>Education</h2>
-            <p><strong>University of Michigan, Ann Arbor, MI</strong> | GPA: 3.9/4.0<br>Aug, 2023 - May 2026</p>
-            <p><em>BSE in Robotics, Minor in Electrical Engineering and Computer Science</em></p>
-            <p><strong>Coursework:</strong> Computer Organization/Foundations, Robot Operating System, Dynamics and Simulation, Active SLAM, Electronic Circuits, Linear Algebra, Data Structure/Algorithms, Discrete Mathematics, Multivariable Calculus, Statistics</p>
-            <p><strong>Certifications:</strong> Data Science, Machine Learning, Natural Language Processing, Image Manipulation, Database, SQL, Thermodynamics</p>
-            <p><strong>Honors/Awards:</strong> 2023-2024 Dean's Honor List, 3rd place in the 2024 Intelligent Ground Vehicle Competition, Victors Award</p>
+        <section id="about-me">
+            <h2>About Me</h2>
+            <p>
+                I am a dedicated robotics engineer and AI enthusiast, currently pursuing a BSE in Robotics with a minor in Electrical Engineering and Computer Science at the University of Michigan, Ann Arbor (GPA: 3.9/4.0). My coursework spans advanced topics such as Robot Operating Systems, Active SLAM, Electronic Circuits, and Data Structures, complemented by certifications in Machine Learning, Natural Language Processing, and SQL. 
+            </p>
+            <p>
+                With a strong passion for innovation, I’ve gained hands-on experience through various roles, including a Robotic Engineering Internship at Stryker, where I designed an autonomous hospital stretcher to optimize caregiver resources. As a Research Assistant in the Electrical and Computer Engineering department, I contributed to enhancing perceptually enabled task guidance by conducting experiments, troubleshooting systems, and fine-tuning AI retrieval models. Additionally, I’ve developed leadership skills as an Orientation Leader, organizing large-scale events and fostering community engagement for new students at the University of Michigan.
+            </p>
+            <p>
+                My technical skillset includes programming in C++, Python, and Java, as well as proficiency in tools like ROS, Docker, and Unity. I am committed to leveraging my expertise to create innovative solutions in robotics and artificial intelligence.
+            </p>
         </section>
 
         <section id="projects">
@@ -175,39 +178,44 @@
             </ul>
         </section>
 
-        <section id="game">
-            <h2>Game</h2>
-            <button class="chat-button" onclick="window.location.href='chat.html'">Go to Chat</button>
-        </section>
-
-        <section id="experience">
-            <h2>Work Experience</h2>
-            <p><strong>Stryker</strong> | Robotic Engineering Intern<br>Jan, 2025 - May 2025 | Ann Arbor, MI</p>
-            <ul>
-                <li>Designed and developed an autonomous hospital stretcher to free up caregiver resources.</li>
-            </ul>
-
-            <p><strong>Electrical and Computer Engineering, University of Michigan</strong> | Research Assistant<br>July 2024 - Present | Ann Arbor, MI</p>
-            <ul>
-                <li>Conducted experiments for multi-directional loosely linked archetype models to enhance perceptually enabled task guidance.</li>
-                <li>Set up environment, router, Linux terminal, HoloLens 2 integration, and AI assistance for participants.</li>
-                <li>Troubleshot issues and converted performance data into JSON format.</li>
-                <li>Fine-tuned retrieval models to improve task-guidance AI assistant quality.</li>
-            </ul>
-
-            <p><strong>University of Michigan Office of New Student Programs</strong> | Orientation Leader<br>May 2024 - Aug, 2024 | Ann Arbor, MI</p>
-            <ul>
-                <li>Prepared and organized orientation programs for over 1,000 students and supporters daily.</li>
-                <li>Led tours introducing campus environment and traditions to incoming families.</li>
-            </ul>
-        </section>
-
         <section id="skills">
             <h2>Technical Skills</h2>
             <p><strong>Programming:</strong> C/C++/C#, Python, Java, R, MATLAB, Julia, HTML, CSS, JavaScript, Bash/Shell, PHP, Perl, Assembly</p>
             <p><strong>Development Tools:</strong> ROS/ROS2, Docker, Unity, TensorFlow, PostgreSQL</p>
             <p><strong>Software:</strong> Altium, Blender, LTspice, Fusion 360</p>
         </section>
+
+        <section id="game">
+            <h2>Game</h2>
+            <div style="display: flex; flex-direction: column; gap: 20px;">
+                <!-- Game 1 -->
+                <div style="display: flex; justify-content: space-between; align-items: center; border: 2px solid #00ffcc; padding: 15px; border-radius: 10px; background-color: #1e1e1e; box-shadow: 0 0 10px #00ffcc;">
+                    <div>
+                        <h3 style="margin: 0; color: #00ffcc;">Chat Adventure</h3>
+                        <p style="margin: 5px 0; color: #e6e6e6;">Explore a conversational AI-driven game where you interact with a smart assistant in a dynamic environment.</p>
+                    </div>
+                    <button class="chat-button" style="margin: 0;" onclick="window.location.href='chat-adventure.html'">Play</button>
+                </div>
+        
+                <!-- Game 2 -->
+                <div style="display: flex; justify-content: space-between; align-items: center; border: 2px solid #00ffcc; padding: 15px; border-radius: 10px; background-color: #1e1e1e; box-shadow: 0 0 10px #00ffcc;">
+                    <div>
+                        <h3 style="margin: 0; color: #00ffcc;">Robot Quest</h3>
+                        <p style="margin: 5px 0; color: #e6e6e6;">Embark on a journey with a virtual robot and solve puzzles to navigate through challenges.</p>
+                    </div>
+                    <button class="chat-button" style="margin: 0;" onclick="window.location.href='robot-quest.html'">Play</button>
+                </div>
+        
+                <!-- Game 3 -->
+                <div style="display: flex; justify-content: space-between; align-items: center; border: 2px solid #00ffcc; padding: 15px; border-radius: 10px; background-color: #1e1e1e; box-shadow: 0 0 10px #00ffcc;">
+                    <div>
+                        <h3 style="margin: 0; color: #00ffcc;">AI Strategist</h3>
+                        <p style="margin: 5px 0; color: #e6e6e6;">Test your decision-making skills in this strategic AI simulation game.</p>
+                    </div>
+                    <button class="chat-button" style="margin: 0;" onclick="window.location.href='ai-strategist.html'">Play</button>
+                </div>
+            </div>
+        </section>        
     </main>
 
     <footer>
