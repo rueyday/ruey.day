@@ -127,6 +127,14 @@
             width: 100%;
             border-top: 2px solid #00ffcc;
         }
+        .profile-img {
+            display: block;
+            border-radius: 50%;
+            width: 210px;
+            height: 200px;
+            box-shadow: 0 0 15px #00ffcc;
+            object-fit: cover;
+        }
 
         /* Animations */
         @keyframes glow {
@@ -154,28 +162,34 @@
     <nav>
         <a href="#about-me">About Me</a>
         <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
+        <a href="#resources">Resources</a>
         <a href="#game">Game</a>
     </nav>
 
     <main>
         <section id="about-me">
             <h2>About Me</h2>
-            <p>
-                I am a dedicated robotics engineer and AI enthusiast, currently pursuing a BSE in Robotics with a minor in Electrical Engineering and Computer Science at the University of Michigan, Ann Arbor (GPA: 3.9/4.0). My coursework spans advanced topics such as Robot Operating Systems, Active SLAM, Electronic Circuits, and Data Structures, complemented by certifications in Machine Learning, Natural Language Processing, and SQL. 
-            </p>
-            <p>
-                With a strong passion for innovation, I’ve gained hands-on experience through various roles, including a Robotic Engineering Internship at Stryker, where I designed an autonomous hospital stretcher to optimize caregiver resources. As a Research Assistant in the Electrical and Computer Engineering department, I contributed to enhancing perceptually enabled task guidance by conducting experiments, troubleshooting systems, and fine-tuning AI retrieval models. Additionally, I’ve developed leadership skills as an Orientation Leader, organizing large-scale events and fostering community engagement for new students at the University of Michigan.
-            </p>
-            <p>
-                My technical skillset includes programming in C++, Python, and Java, as well as proficiency in tools like ROS, Docker, and Unity. I am committed to leveraging my expertise to create innovative solutions in robotics and artificial intelligence.
-            </p>
-            <p>
-                Check out my journey: 
-                <a href="experience.html" style="color: #00ffcc; text-decoration: none;">Experience</a> | 
-                <a href="honor.html" style="color: #00ffcc; text-decoration: none;">Honors and Awards</a>.
-            </p>
+            <div style="display: flex; align-items: flex-start; gap: 20px;">
+                <img src="profile.jpeg" alt="Profile Picture" class="profile-img" style="margin-top: 10px;">
+                <div>
+                    <p>
+                        I am a dedicated robotics engineer and AI enthusiast, currently pursuing a BSE in Robotics with a minor in Electrical Engineering and Computer Science at the University of Michigan, Ann Arbor (GPA: 3.9/4.0). My coursework spans advanced topics such as Robot Operating Systems, Active SLAM, Electronic Circuits, and Data Structures, complemented by certifications in Machine Learning, Natural Language Processing, and SQL.
+                    </p>
+                    <p>
+                        With a strong passion for innovation, I’ve gained hands-on experience through various roles, including a Robotic Engineering Internship at Stryker, where I designed an autonomous hospital stretcher to optimize caregiver resources. As a Research Assistant in the Electrical and Computer Engineering department, I contributed to enhancing perceptually enabled task guidance by conducting experiments, troubleshooting systems, and fine-tuning AI retrieval models. Additionally, I’ve developed leadership skills as an Orientation Leader, organizing large-scale events and fostering community engagement for new students at the University of Michigan.
+                    </p>
+                    <p>
+                        My technical skillset includes programming in C++, Python, and Java, as well as proficiency in tools like ROS, Docker, and Unity. I am committed to leveraging my expertise to create innovative solutions in robotics and artificial intelligence.
+                    </p>
+                    <p>
+                        Check out my journey: 
+                        <a href="experience.html" style="color: #00ffcc; text-decoration: none;">Experience</a> | 
+                        <a href="honor.html" style="color: #00ffcc; text-decoration: none;">Honors and Awards</a>.
+                    </p>
+                </div>
+            </div>
         </section>
+        
 
         <section id="projects">
             <h2>Projects</h2>
@@ -187,12 +201,50 @@
             </ul>
         </section>
 
-        <section id="skills">
-            <h2>Technical Skills</h2>
-            <p><strong>Programming:</strong> C/C++/C#, Python, Java, R, MATLAB, Julia, HTML, CSS, JavaScript, Bash/Shell, PHP, Perl, Assembly</p>
-            <p><strong>Development Tools:</strong> ROS/ROS2, Docker, Unity, TensorFlow, PostgreSQL</p>
-            <p><strong>Software:</strong> Altium, Blender, LTspice, Fusion 360</p>
-        </section>
+        <section id="resources">
+            <h2>Resources</h2>
+        
+            <h3>Programming</h3>
+            <ul>
+                <li><a href="https://www.python.org/doc/" target="_blank">Python Official Documentation</a> - Learn Python with official resources.</li>
+                <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">JavaScript Documentation on MDN</a> - Comprehensive guide to JavaScript.</li>
+                <li><a href="https://www.w3schools.com/" target="_blank">W3Schools</a> - Tutorials on HTML, CSS, and JavaScript.</li>
+            </ul>
+        
+            <h3>Software</h3>
+            <ul>
+                <li><a href="https://blender.org/" target="_blank">Blender</a> - Open-source 3D modeling and rendering software.</li>
+                <li><a href="https://www.autodesk.com/products/fusion-360/" target="_blank">Fusion 360</a> - 3D CAD, CAM, and CAE tool.</li>
+                <li><a href="https://www.altium.com/" target="_blank">Altium Designer</a> - PCB design software for creating electronic systems.</li>
+            </ul>
+        
+            <h3>Development Platforms</h3>
+            <ul>
+                <li><a href="https://ros.org" target="_blank">Robot Operating System (ROS) Official Site</a> - Resources for learning ROS/ROS2.</li>
+                <li><a href="https://www.tensorflow.org/" target="_blank">TensorFlow Documentation</a> - Deep dive into machine learning with TensorFlow.</li>
+                <li><a href="https://unity.com/learn" target="_blank">Unity Learn</a> - Tutorials for Unity game development.</li>
+                <li><a href="https://www.docker.com/" target="_blank">Docker Documentation</a> - Learn containerization with Docker.</li>
+            </ul>
+        
+            <h3>Math</h3>
+            <ul>
+                <li><a href="https://mathworld.wolfram.com/" target="_blank">MathWorld by Wolfram</a> - Comprehensive math resource.</li>
+                <li><a href="https://ocw.mit.edu/courses/mathematics/" target="_blank">MIT OpenCourseWare Mathematics</a> - Free math courses from MIT.</li>
+            </ul>
+        
+            <h3>Physics</h3>
+            <ul>
+                <li><a href="https://physics.info/" target="_blank">The Physics Hypertextbook</a> - An online physics reference.</li>
+                <li><a href="https://ocw.mit.edu/courses/physics/" target="_blank">MIT OpenCourseWare Physics</a> - Free physics courses from MIT.</li>
+            </ul>
+        
+            <h3>Others</h3>
+            <ul>
+                <li><a href="https://www.postgresql.org/docs/" target="_blank">PostgreSQL Documentation</a> - Guide to PostgreSQL database systems.</li>
+                <li><a href="https://www.coursera.org/" target="_blank">Coursera</a> - Access courses on various topics from leading universities.</li>
+            </ul>
+        </section>        
+        
 
         <section id="game">
             <h2>Game</h2>
@@ -230,5 +282,6 @@
     <footer>
         &copy; 2024 Ruey's Personal Website. All Rights Reserved.
     </footer>
+    <script data-collect-dnt="true" async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
 </body>
 </html>
