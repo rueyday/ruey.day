@@ -59,7 +59,7 @@
 
         /* Main Content */
         main {
-            padding: 30px;
+            padding: 30px 160px;
         }
         section {
             margin: 40px 0;
@@ -160,7 +160,6 @@
     </header>
 
     <nav>
-        <a href="#about-me">About Me</a>
         <a href="#projects">Projects</a>
         <a href="#resources">Resources</a>
         <a href="#game">Game</a>
@@ -193,22 +192,66 @@
 
         <section id="projects">
             <h2>Projects</h2>
-            <ul>
-                <li><a href="projects/ai-assistant.html">Personalized AI Assistant using LLaMA</a> - hello</li>
-                <li><a href="projects/swarm-robotics.html">Swarm Robotics Project with Atombot Helium</a></li>
-                <li><a href="projects/automobile-tracker.html">Web-Based Application for Tracking Automobiles</a></li>
-                <li><a href="projects/mbot-challenge.html">MBot Setpoint Challenge</a></li>
-            </ul>
+            <div style="display: flex; flex-direction: column; gap: 30px;">
+                <div style="border: 2px solid #00ffcc; padding: 20px; border-radius: 10px; background-color: #1e1e1e; box-shadow: 0 0 10px #00ffcc;">
+                    <h3 style="margin: 0; color: #00ffcc;">University of Michigan Autonomous Robotics Vechical | Embedded System Team</h3>
+                    <p style="margin: 10px 0; color: #e6e6e6;">
+                        Competed in the annual Intelligent Ground Vehicle Competition at Oakland University in Rochester, Michigan, and contributed to the robot-embedded system.
+                    </p>
+                    <div style="margin: 10px 0;">
+                        <a href="https://github.com/umigv/Embedded_Stack_ROS2" target="_blank" style="color: #00ffcc; text-decoration: none; margin-right: 15px;">GitHub</a>
+                    </div>
+                </div>
+                <!-- Project 1 -->
+                <div style="border: 2px solid #00ffcc; padding: 20px; border-radius: 10px; background-color: #1e1e1e; box-shadow: 0 0 10px #00ffcc;">
+                    <h3 style="margin: 0; color: #00ffcc;">Cloud Host AI Assistant</h3>
+                    <p style="margin: 10px 0; color: #e6e6e6;">
+                        Developed a personalized AI Assistant using LLaMA, leveraging advanced AI models for task automation and personalization.
+                    </p>
+                    <div style="margin: 10px 0;">
+                        <a href="https://github.com/Ruey-Day/AI_Assistant" target="_blank" style="color: #00ffcc; text-decoration: none; margin-right: 15px;">GitHub</a>
+                        <a href="https://colab.research.google.com/drive/12XcNtowEP-2lWTTOM3IoebsdsrXt4_wz?usp=sharing" target="_blank" style="color: #00ffcc; text-decoration: none; margin-right: 15px;">Google Colab</a>
+                        <a href="https://www.rueyday.com/chat.html" target="_blank" style="color: #00ffcc; text-decoration: none; margin-right: 15px;">Chat GUI</a>
+                    </div>
+                </div>
+                <!-- Project 3 -->
+                <div style="border: 2px solid #00ffcc; padding: 20px; border-radius: 10px; background-color: #1e1e1e; box-shadow: 0 0 10px #00ffcc;">
+                    <h3 style="margin: 0; color: #00ffcc;">Starship Craft</h3>
+                    <p style="margin: 10px 0; color: #e6e6e6;">
+                        A video game featuring spaceship battles, allowing players to build and explore in a dynamic space environment.
+                    </p>
+                    <div style="margin: 10px 0;">
+                        <a href="https://github.com/Ruey-Day/Starship_Craft" target="_blank" style="color: #00ffcc; text-decoration: none; margin-right: 15px;">GitHub</a>
+                    </div>
+                </div>
+            </div>
         </section>
+        
 
         <section id="resources">
             <h2>Resources</h2>
         
             <h3>Programming</h3>
             <ul>
-                <li><a href="https://www.python.org/doc/" target="_blank">Python Official Documentation</a> - Learn Python with official resources.</li>
-                <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">JavaScript Documentation on MDN</a> - Comprehensive guide to JavaScript.</li>
-                <li><a href="https://www.w3schools.com/" target="_blank">W3Schools</a> - Tutorials on HTML, CSS, and JavaScript.</li>
+                <li>Python
+                    <ul>
+                    <li><a href="https://docs.python.org/3/tutorial/" target="_blank">The Python Tutorial</a> - Documentation for python</li>
+                    <li><a href="https://docs.python.org/3/library/venv.html" target="_blank">venv</a> - Creation of virtual environments</li>
+                    <li><a href="https://github.com/pyenv/pyenv" target="_blank">pyenv</a> - Simple Python Version Management</li>
+                    <li><a href="https://docs.anaconda.com/miniconda/" target="_blank">Miniconda</a> - Anaconda Documentation</li>
+                    </ul>
+                </li>
+                <li>Machine Learning
+                    <ul>
+                    <li><a href="https://www.freecodecamp.org/news/how-machines-make-sense-of-big-data-an-introduction-to-clustering-algorithms-4bd97d4fbaba" target="_blank">An introduction to clustering algorithms</a> - Different clustering methods</li>
+                    <li><a href="https://distill.pub/2016/misread-tsne/#citation" target="_blank">t-SNE</a> - A method for exploring high-dimensional data</li>
+                    </ul>
+                </li>
+                <li>Database
+                    <ul>
+                    <li><a href="https://www.postgresql.org/docs/" target="_blank">PostgreSQL Documentation</a> - Guide to PostgreSQL database systems.</li>
+                    </ul>
+                </li>
             </ul>
         
             <h3>Software</h3>
@@ -218,7 +261,7 @@
                 <li><a href="https://www.altium.com/" target="_blank">Altium Designer</a> - PCB design software for creating electronic systems.</li>
             </ul>
         
-            <h3>Development Platforms</h3>
+            <h3>Robotics</h3>
             <ul>
                 <li><a href="https://ros.org" target="_blank">Robot Operating System (ROS) Official Site</a> - Resources for learning ROS/ROS2.</li>
                 <li><a href="https://www.tensorflow.org/" target="_blank">TensorFlow Documentation</a> - Deep dive into machine learning with TensorFlow.</li>
@@ -236,12 +279,6 @@
             <ul>
                 <li><a href="https://physics.info/" target="_blank">The Physics Hypertextbook</a> - An online physics reference.</li>
                 <li><a href="https://ocw.mit.edu/courses/physics/" target="_blank">MIT OpenCourseWare Physics</a> - Free physics courses from MIT.</li>
-            </ul>
-        
-            <h3>Others</h3>
-            <ul>
-                <li><a href="https://www.postgresql.org/docs/" target="_blank">PostgreSQL Documentation</a> - Guide to PostgreSQL database systems.</li>
-                <li><a href="https://www.coursera.org/" target="_blank">Coursera</a> - Access courses on various topics from leading universities.</li>
             </ul>
         </section>        
         
