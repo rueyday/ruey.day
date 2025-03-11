@@ -10,18 +10,52 @@
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #121212;
+            background-color: #2a2a2a;
             color: #fff;
             overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Animated Background */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 1%, transparent 1%);
+            background-size: 50px 50px;
+            animation: movePattern 10s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes movePattern {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: 50px 50px;
+            }
         }
 
         /* Header */
         header {
-            background: linear-gradient(90deg, #0f0c29, #302b63, #24243e);
+            background: linear-gradient(90deg, #444, #666, #888);
             color: #00ffcc;
             text-align: center;
             padding: 1.2em 0;
             border-bottom: 2px solid #00ffcc;
+            animation: colorShift 6s infinite alternate;
+        }
+
+        @keyframes colorShift {
+            0% {
+                background: linear-gradient(90deg, #444, #666, #888);
+            }
+            100% {
+                background: linear-gradient(90deg, #333, #555, #777);
+            }
         }
         header h1 {
             font-size: 3.5em;
