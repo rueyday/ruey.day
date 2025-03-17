@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, Dad!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: linear-gradient(to bottom, #FFD700, #FFA500);
+            color: #333;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 3rem;
+            color: #d63384;
+        }
+        .message {
+            font-size: 1.5rem;
+            margin: 20px;
+        }
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+            display: inline-block;
+            margin-top: 20px;
+        }
+        .image-container {
+            margin-top: 20px;
+        }
+        img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+        .footer {
+            margin-top: 30px;
+            font-size: 1rem;
+            color: #555;
+        }
+        .language-btn {
+            margin-bottom: 20px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            background-color: #d63384;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .language-btn:hover {
+            background-color: #a82864;
+        }
+    </style>
+</head>
+<body>
+
+    <button class="language-btn" onclick="toggleLanguage()">Switch to 中文</button>
+    <h1 id="title">🎉 Happy Birthday, Dad! 🎂</h1>
+
+    <div class="card">
+        <p class="message" id="message1">Dear Dad,</p>
+        <p class="message" id="message2">
+            Wishing you a day filled with love, joy, and laughter. You are the best dad ever, 
+            and I’m so grateful for everything you do! Enjoy your special day! 🎈🎁
+        </p>
+        <div class="image-container">
+            <img src="b-day-balloons.gif" alt="Happy Birthday Dad">
+        </div>
+    </div>
+
+    <div class="footer">
+        <p id="footer">Made with ❤️ by Ruey</p>
+    </div>
+
+    <script>
+        let isEnglish = true;
+
+        function toggleLanguage() {
+            if (isEnglish) {
+                document.getElementById("title").innerText = "🎉 生日快樂，爸爸！ 🎂";
+                document.getElementById("message1").innerText = "親愛的爸爸，";
+                document.getElementById("message2").innerText = 
+                    "祝您生日快樂，充滿愛、歡樂和笑聲！您是最棒的爸爸，感謝您所做的一切！祝您有個美好的一天！🎈🎁";
+                document.getElementById("footer").innerText = "用 ❤️ 製作 by Ruey";
+                document.querySelector(".language-btn").innerText = "Switch to English";
+            } else {
+                document.getElementById("title").innerText = "🎉 Happy Birthday, Dad! 🎂";
+                document.getElementById("message1").innerText = "Dear Dad,";
+                document.getElementById("message2").innerText = 
+                    "Wishing you a day filled with love, joy, and laughter. You are the best dad ever, and I’m so grateful for everything you do! Enjoy your special day! 🎈🎁";
+                document.getElementById("footer").innerText = "Made with ❤️ by Ruey";
+                document.querySelector(".language-btn").innerText = "Switch to 中文";
+            }
+            isEnglish = !isEnglish;
+        }
+    </script>
+
+</body>
+</html>
