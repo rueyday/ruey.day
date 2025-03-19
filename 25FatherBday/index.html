@@ -31,6 +31,9 @@
         .image-container {
             margin-top: 20px;
         }
+        .image-wrapper {
+            margin-bottom: 15px;
+        }
         img {
             max-width: 100%;
             border-radius: 10px;
@@ -58,7 +61,7 @@
 <body>
 
     <button class="language-btn" onclick="toggleLanguage()">Switch to 中文</button>
-    <h1 id="title">🎉 Happy Birthday, Dad! 🎂</h1>
+    <h1 id="title">🎉 Happy Birthday, Dad!!! ↓ Scroll Down ↓ 🎂</h1>
 
     <div class="card">
         <p class="message" id="message1">Dear Dad,</p>
@@ -67,7 +70,19 @@
             and I’m so grateful for everything you do! Enjoy your special day! 🎈🎁
         </p>
         <div class="image-container">
-            <img src="b-day-balloons.gif" alt="Happy Birthday Dad">
+            <div class="image-wrapper"><img src="b-day-balloons.gif" alt="Happy Birthday Dad"></div>
+            <div class="image-wrapper"><img src="photo1.jpg" alt="Photo 1"></div>
+            <div class="image-wrapper"><img src="photo2.jpg" alt="Photo 2"></div>
+            <div class="image-wrapper"><img src="photo3.jpg" alt="Photo 3"></div>
+            <div class="image-wrapper"><img src="photo4.jpg" alt="Photo 4"></div>
+            <div class="image-wrapper"><img src="photo5.jpg" alt="Photo 5"></div>
+            <div class="image-wrapper"><img src="photo6.jpg" alt="Photo 6"></div>
+            <div class="image-wrapper"><img src="photo7.jpg" alt="Photo 7"></div>
+            <div class="image-wrapper"><img src="photo8.jpg" alt="Photo 8"></div>
+            <div class="image-wrapper"><img src="photo9.jpg" alt="Photo 9"></div>
+            <div class="image-wrapper"><img src="photo10.jpg" alt="Photo 10"></div>
+            <div class="image-wrapper"><img src="photo11.jpg" alt="Photo 11"></div>
+            <div class="image-wrapper"><img src="photo12.jpg" alt="Photo 12"></div>
         </div>
     </div>
 
@@ -80,17 +95,17 @@
 
         function toggleLanguage() {
             if (isEnglish) {
-                document.getElementById("title").innerText = "🎉 生日快樂，爸爸！ 🎂";
+                document.getElementById("title").innerText = "🎉 生日快樂，爸爸！ ↓ 往下滑 ↓ 🎂";
                 document.getElementById("message1").innerText = "親愛的爸爸，";
                 document.getElementById("message2").innerText = 
-                    "祝您生日快樂，充滿愛、歡樂和笑聲！您是最棒的爸爸，感謝您所做的一切！祝您有個美好的一天！🎈🎁";
+                    "祝您生日快樂，充滿愛、歡樂和笑聲！您是最棒的爸爸，感謝您所做的一切！祝您有個美好的一年！🎈🎁";
                 document.getElementById("footer").innerText = "用 ❤️ 製作 by Ruey";
                 document.querySelector(".language-btn").innerText = "Switch to English";
             } else {
-                document.getElementById("title").innerText = "🎉 Happy Birthday, Dad! 🎂";
+                document.getElementById("title").innerText = "🎉 Happy Birthday, Dad! ↓ Scroll Down ↓ 🎂";
                 document.getElementById("message1").innerText = "Dear Dad,";
                 document.getElementById("message2").innerText = 
-                    "Wishing you a day filled with love, joy, and laughter. You are the best dad ever, and I’m so grateful for everything you do! Enjoy your special day! 🎈🎁";
+                    "Wishing you every day filled with love, joy, and laughter. You are the best dad ever, and I’m so grateful for everything you do! Enjoy your special day in Taiwan with Mom! 🎈🎁";
                 document.getElementById("footer").innerText = "Made with ❤️ by Ruey";
                 document.querySelector(".language-btn").innerText = "Switch to 中文";
             }
