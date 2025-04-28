@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date Countdown</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        input {
+            padding: 10px;
+            margin: 10px 0;
+        }
+        button {
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Countdown to Your Date</h1>
+    <p>Enter a date to see how many days and hours are left:</p>
+    <input type="date" id="targetDate" />
+    <button onclick="calculateCountdown()">Calculate</button>
+    <div class="result" id="result"></div>
+
+    <script>
+        function calculateCountdown() {
+            const resultDiv = document.getElementById("result");
+            const targetDateInput = document.getElementById("targetDate").value;
+
+            if (!targetDateInput) {
+                resultDiv.textContent = "Please select a date.";
+                return;
+            }
+
+            const targetDate = new Date(targetDateInput);
+            const currentDate = new Date();
+
+            if (targetDate <= currentDate) {
+                resultDiv.textContent = "The selected date is in the past or today.";
+                return;
+            }
+
+            const diffInMs = targetDate - currentDate;
+            const totalDays = Math.floor(diffInMs / (1000 * 60 * 60 * 24));
+            const totalHours = Math.floor(diffInMs / (1000 * 60 * 60));
+
+            resultDiv.textContent = `Time left: ${totalDays} days or ${totalHours} hours.`;
+        }
+    </script>
+</body>
+</html>
