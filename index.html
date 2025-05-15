@@ -1,349 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ruey Day</title>
-    <style>
-        /* General Styles */
-        body {
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #2a2a2a;
-            color: #fff;
-            overflow-x: hidden;
-            position: relative;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ruey Yeh</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    :root {
+      --blue: #3c4f5c;
+      --gray: #777777;
+      --black: #1a1a1a;
+      --white: #f5f5f5;
+      --silver: #b0b0b0;
+      --blue-accent: #2a3b47;
+    }
 
-        /* Animated Background */
-        body::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 1%, transparent 1%);
-            background-size: 50px 50px;
-            animation: movePattern 10s linear infinite;
-            z-index: -1;
-        }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        @keyframes movePattern {
-            0% {
-                background-position: 0 0;
-            }
-            100% {
-                background-position: 50px 50px;
-            }
-        }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--black);
+      color: var(--white);
+      line-height: 1.6;
+    }
 
-        /* Header */
-        header {
-            background: linear-gradient(90deg, #444, #666, #888);
-            color: #00ffcc;
-            text-align: center;
-            padding: 1.2em 0;
-            border-bottom: 2px solid #00ffcc;
-            animation: colorShift 6s infinite alternate;
-        }
+    header {
+      background-color: var(--gray);
+      color: var(--white);
+      padding: 1rem;
+    }
 
-        @keyframes colorShift {
-            0% {
-                background: linear-gradient(90deg, #444, #666, #888);
-            }
-            100% {
-                background: linear-gradient(90deg, #333, #555, #777);
-            }
-        }
-        header h1 {
-            font-size: 3.5em;
-            margin: 0;
-            font-weight: 700;
-            font-family: 'Poppins', sans-serif;
-            color: #e6f7ff;
-            text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc;
-        }
-        header p {
-            font-size: 1.2em;
-            color: #b3d9d9;
-        }
+    .nav-primary,
+    .nav-secondary {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 0.5rem;
+    }
 
-        /* Navigation */
-        nav {
-            display: flex;
-            justify-content: center;
-            background-color: #1e1e1e;
-            padding: 10px 0;
-        }
-        nav a {
-            color: #00ffcc;
-            text-decoration: none;
-            margin: 0 15px;
-            padding: 10px 20px;
-            border: 2px solid transparent;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-        }
-        nav a:hover {
-            border-color: #00ffcc;
-            box-shadow: 0 0 10px #00ffcc;
-        }
+    .nav-primary a,
+    .nav-secondary a {
+      color: var(--white);
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
 
-        /* Main Content */
-        main {
-            padding: 30px 160px;
-        }
-        section {
-            margin: 40px 0;
-        }
-        section h2 {
-            font-size: 2.2em;
-            color: #00ffcc;
-            border-bottom: 2px solid #00ffcc;
-            display: inline-block;
-            margin-bottom: 10px;
-        }
-        section p, section ul {
-            font-size: 1.1em;
-            line-height: 1.8;
-        }
-        section ul li a {
-            color: #00ffcc;
-            text-decoration: none;
-        }
-        section ul li a:hover {
-            text-decoration: underline;
-        }
+    .nav-primary a:hover,
+    .nav-secondary a:hover {
+      color: var(--silver);
+    }
 
-        /* Profile Image */
-        .profile-img {
-            display: block;
-            margin: 0 auto;
-            border-radius: 50%;
-            width: 150px;
-            height: 150px;
-            box-shadow: 0 0 15px #00ffcc;
-        }
+    .nav-secondary {
+      background-color: var(--blue-accent);
+    }
 
-        /* Chat Button */
-        .chat-button {
-            display: block;
-            width: 220px;
-            margin: 20px auto;
-            padding: 15px;
-            background-color: #00ffcc;
-            color: #121212;
-            text-align: center;
-            font-size: 18px;
-            font-weight: bold;
-            text-decoration: none;
-            border: none;
-            border-radius: 25px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        .chat-button:hover {
-            background-color: #008f73;
-            box-shadow: 0 0 15px #00ffcc;
-        }
+    main {
+      padding: 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
 
-        /* Footer */
-        footer {
-            background: #1e1e1e;
-            color: #00ffcc;
-            text-align: center;
-            padding: 15px 0;
-            font-size: 0.9em;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            border-top: 2px solid #00ffcc;
-        }
-        .profile-img {
-            display: block;
-            border-radius: 50%;
-            width: 210px;
-            height: 200px;
-            box-shadow: 0 0 15px #00ffcc;
-            object-fit: cover;
-        }
+    section {
+      margin-bottom: 1rem;
+    }
 
-        /* Animations */
-        @keyframes glow {
-            from {
-                text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc, 0 0 20px #00ffcc;
-            }
-            to {
-                text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc, 0 0 30px #00ffcc;
-            }
-        }
-    </style>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="icon.png" type="image/png">
+    h1, h2 {
+      color: var(--silver);
+    }
+
+    .project-card {
+      background-color: var(--blue);
+      border: 1px solid var(--gray);
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      transition: transform 0.2s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    .project-card:hover {
+      transform: scale(1.02);
+      box-shadow: 0 4px 12px rgba(176, 176, 176, 0.2);
+    }
+
+    .project-card h3 {
+      margin-bottom: 0.5rem;
+      color: var(--silver);
+    }
+
+    .project-card a {
+      display: inline-block;
+      margin-right: 1rem;
+      color: var(--white);
+      text-decoration: none;
+    }
+
+    .project-card a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: var(--gray);
+      color: var(--white);
+      margin-top: 2rem;
+    }
+
+    img.profile-pic {
+      width: 150px;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+      border: 4px solid var(--silver);
+    }
+
+    .about {
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      .nav-primary,
+      .nav-secondary {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <header>
+  <header>
+    <section id="about" class="about">
         <h1>Ruey Day</h1>
-        <p style="font-size: 1.2em; color: #b3d9d9; font-family: 'Poppins', sans-serif;">
-            <a href="https://www.linkedin.com/in/ruey-day-50562524b" target="_blank" style="color: #00ffcc; text-decoration: none; text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc;">LinkedIn</a> |
-            <a href="https://github.com/Ruey-Day" target="_blank" style="color: #00ffcc; text-decoration: none; text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc;">GitHub</a> |
-            <a href="https://www.instagram.com/rueyday" target="_blank" style="color: #00ffcc; text-decoration: none; text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc;">Instagram</a>
-        </p>
-    </header>
-
-    <nav>
-        <a href="#projects">Projects</a>
-        <a href="#resources">Resources</a>
-        <a href="#game">Game</a>
+        <p>I design and develop robotic and autonomous systems.</p>
+      </section>
+    <nav class="nav-primary">
+      <a href="#home">Home</a>
+      <a href="#projects">Projects</a>
     </nav>
+    <nav class="nav-secondary">
+      <a href="#about">About Me</a>
+      <a href="#resources">Resources</a>
+      <a href="#game">Game</a>
+    </nav>
+  </header>
 
-    <main>
-        <section id="about-me">
-            <h2>About Me</h2>
-            <div style="display: flex; align-items: flex-start; gap: 40px;">
-                <img src="profile.jpeg" alt="Profile Picture" class="profile-img" style="margin-top: 10px;">
-                <div>
-                    <p>
-                        I am a robotics engineer focused on Computer Vision and Embedded Systems, currently pursuing a BSE in Robotics and Computer Engineering at the University of Michigan, Ann Arbor. My coursework includes topics in EECS and robotics, complemented by Coursera certifications in Data science and database.
-                    </p>
-                    <p>
-                        I've gained hands-on experience through various roles, including designing an autonomous hospital stretcher for Stryler with my design team to optimize caregiver resources. As a Research Assistant in the Electrical and Computer Engineering department, I conducted research for task guidance through AI assistance. I'm also part of the Umich Autonomous Robotics Vechical project team's embedded system subteam, where we build and optimize the hardware of our autonomous vehicles. 
-                    </p>
-                    <p>
-                        Aside from my technical skills, I've developed strong communication skills as an Orientation Leader, organizing large-scale welcoming events and leading the campus tour for incoming students at the University of Michigan. Additionally, I'm a native speaker of both English and Taiwanese Mandarin. 
-                    </p>
-                    <p>
-                        Check out my journey here: 
-                        <a href="experience.html" style="color: #00ffcc; text-decoration: none;">Experience</a> | 
-                        <a href="honor.html" style="color: #00ffcc; text-decoration: none;">Honors and Awards(still wokring on it)</a>.
-                    </p>
-                </div>
-            </div>
-        </section>
-        
+  <main>
+    <section id="projects">
+      <h2>Projects</h2>
 
-        <section id="projects">
-            <h2>Projects</h2>
-            <div style="display: flex; flex-direction: column; gap: 30px;">
-                <div style="border: 2px solid #00ffcc; padding: 20px; border-radius: 10px; background-color: #1e1e1e; box-shadow: 0 0 10px #00ffcc;">
-                    <h3 style="margin: 0; color: #00ffcc;">University of Michigan Autonomous Robotics Vechical | Embedded System Team</h3>
-                    <p style="margin: 10px 0; color: #e6e6e6;">
-                        Competed in the annual Intelligent Ground Vehicle Competition at Oakland University in Rochester, Michigan, and contributed to the robot-embedded system.
-                    </p>
-                    <div style="margin: 10px 0;">
-                        <a href="https://github.com/umigv/Embedded_Stack_ROS2" target="_blank" style="color: #00ffcc; text-decoration: none; margin-right: 15px;">GitHub</a>
-                    </div>
-                </div>
-                <!-- Project 1 -->
-                <div style="border: 2px solid #00ffcc; padding: 20px; border-radius: 10px; background-color: #1e1e1e; box-shadow: 0 0 10px #00ffcc;">
-                    <h3 style="margin: 0; color: #00ffcc;">Cloud Host AI Assistant</h3>
-                    <p style="margin: 10px 0; color: #e6e6e6;">
-                        Developed a personalized AI Assistant using LLaMA, leveraging advanced AI models for task automation and personalization.
-                    </p>
-                    <div style="margin: 10px 0;">
-                        <a href="https://github.com/Ruey-Day/AI_Assistant" target="_blank" style="color: #00ffcc; text-decoration: none; margin-right: 15px;">GitHub</a>
-                        <a href="https://colab.research.google.com/drive/12XcNtowEP-2lWTTOM3IoebsdsrXt4_wz?usp=sharing" target="_blank" style="color: #00ffcc; text-decoration: none; margin-right: 15px;">Google Colab</a>
-                        <a href="https://www.rueyday.com/chat.html" target="_blank" style="color: #00ffcc; text-decoration: none; margin-right: 15px;">Chat GUI</a>
-                    </div>
-                </div>
-                <!-- Project 3 -->
-                <div style="border: 2px solid #00ffcc; padding: 20px; border-radius: 10px; background-color: #1e1e1e; box-shadow: 0 0 10px #00ffcc;">
-                    <h3 style="margin: 0; color: #00ffcc;">Starship Craft</h3>
-                    <p style="margin: 10px 0; color: #e6e6e6;">
-                        A video game featuring spaceship battles, allowing players to build and explore in a dynamic space environment.
-                    </p>
-                    <div style="margin: 10px 0;">
-                        <a href="https://github.com/Ruey-Day/Starship_Craft" target="_blank" style="color: #00ffcc; text-decoration: none; margin-right: 15px;">GitHub</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
+      <div class="project-card">
+        <h3>Autonomous Hospital Stretcher (Stryker Internship)</h3>
+        <p>ROS 2 stack for autonomous navigation of a hospital stretcher with RealSense and odometry data in Gazebo simulation.</p>
+        <a href="https://github.com/ru3yy/stryker-autonomous-stretcher">GitHub</a>
+        <a href="https://colab.research.google.com/drive/1umf7PBExjvDLWa81T_4BlRPKTe3Ysy_1?usp=sharing">Colab</a>
+      </div>
 
-        <section id="resources">
-            <h2>Resources</h2>
-        
-            <h3>Programming</h3>
-            <ul>
-                <li>Python
-                    <ul>
-                    <li><a href="https://docs.python.org/3/tutorial/" target="_blank">The Python Tutorial</a> - Documentation for python</li>
-                    <li><a href="https://docs.python.org/3/library/venv.html" target="_blank">venv</a> - Creation of virtual environments</li>
-                    <li><a href="https://github.com/pyenv/pyenv" target="_blank">pyenv</a> - Simple Python Version Management</li>
-                    <li><a href="https://docs.anaconda.com/miniconda/" target="_blank">Miniconda</a> - Anaconda Documentation</li>
-                    </ul>
-                </li>
-                <li>Machine Learning
-                    <ul>
-                    <li><a href="https://pytorch.org/tutorials/" target="_blank">PyTorch</a> - PyTorch Tutorials</li>
-                    <li><a href="https://developer.nvidia.com/blog/deep-learning-nutshell-core-concepts/" target="_blank">Deep Learning</a> - Core Concepts for Deep Learning in a Nutshell</li>
-                    <li><a href="https://github.com/google-research/tuning_playbook?tab=readme-ov-file#what-are-the-update-rules-for-all-the-popular-optimization-algorithms" target="_blank">Fine-tuning</a> - Deep Learning Tuning Playbook</li>
-                    <li><a href="https://www.freecodecamp.org/news/how-machines-make-sense-of-big-data-an-introduction-to-clustering-algorithms-4bd97d4fbaba" target="_blank">An introduction to clustering algorithms</a> - Different clustering methods</li>
-                    <li><a href="https://distill.pub/2016/misread-tsne/#citation" target="_blank">t-SNE</a> - A method for exploring high-dimensional data</li>
-                    <li><a href="https://medium.com/@colin.fraser/the-treachery-of-leakage-56a2d7c4e931" target="_blank">Leakage</a> - Avoid data leakage for a model</li>
-                    <li><a href="https://www.kaggle.com/c/the-icml-2013-whale-challenge-right-whale-redux/discussion/4865#25839#post25839" target="_blank">The ICML 2013 Whale Challenge</a> - How the contest leakage was fixed</li>
-                    <li><a href="https://playground.tensorflow.org/#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=4,2&seed=0.63924&showTestData=false&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false" target="_blank">Neural Network</a> - Tinker With a Neural Network</li>
-                    
-                    </ul>
-                </li>
-                <li>Database
-                    <ul>
-                    <li><a href="https://www.postgresql.org/docs/" target="_blank">PostgreSQL Documentation</a> - Guide to PostgreSQL database systems.</li>
-                    </ul>
-                </li>
-            </ul>
-        
-            <h3>Software</h3>
-            <ul>
-                <li><a href="https://www.omnigroup.com/omnigraffle/" target="_blank">OmniGraffle</a> - A diagramming and digital illustration application for macOS and iOS.</li>
-                <li><a href="https://www.autodesk.com/products/fusion-360/" target="_blank">Fusion 360</a> - 3D CAD, CAM, and CAE tool.</li>
-                <li><a href="https://www.altium.com/" target="_blank">Altium Designer</a> - PCB design software for creating electronic systems.</li>
-            </ul>
-        
-            <h3>Robotics</h3>
-            <ul>
-                <li><a href="https://ros.org" target="_blank">Robot Operating System (ROS) Official Site</a> - Resources for learning ROS/ROS2.</li>
-                <li><a href="https://manikamakam.github.io/SLAM/" target="_blank">Active SLAM</a> - A documentation for simultaneous localization and mapping.</li>
-                <li><a href="https://www.geeksforgeeks.org/a-search-algorithm/" target="_blank">A*</a> - Documentation for A* Search Algorithm.</li>
-            </ul>
-        
-            <h3>Math</h3>
-            <ul>
-                <li><a href="https://mathworld.wolfram.com/" target="_blank">MathWorld by Wolfram</a> - Comprehensive math resource.</li>
-                <li><a href="https://www.desmos.com/" target="_blank">Desmos</a> - Graphing calculator.</li>
-            </ul>
-        </section>        
-        
+      <div class="project-card">
+        <h3>Zoo Pathfinding Algorithm</h3>
+        <p>C++ pathfinding algorithm with MST, FASTTSP, and OPTTSP (branch and bound with MST-based pruning).</p>
+        <a href="https://github.com/ru3yy/zoo-pathfinder">GitHub</a>
+      </div>
 
-        <section id="game">
-            <h2>Game</h2>
-            <div style="display: flex; flex-direction: column; gap: 20px;">
-                <!-- Game 1 -->
-                <div style="display: flex; justify-content: space-between; align-items: center; border: 2px solid #00ffcc; padding: 15px; border-radius: 10px; background-color: #1e1e1e; box-shadow: 0 0 10px #00ffcc;">
-                    <div>
-                        <h3 style="margin: 0; color: #00ffcc;">Chatbot</h3>
-                        <p style="margin: 5px 0; color: #e6e6e6;">Chat with Meta 3.2 LLaMA model(currently down, I'll fix it after final).</p>
-                    </div>
-                    <button class="chat-button" style="margin: 0;" onclick="window.location.href='chat.html'">Play</button>
-                </div>
-        
-                <!-- Game 2 -->
-                <div style="display: flex; justify-content: space-between; align-items: center; border: 2px solid #00ffcc; padding: 15px; border-radius: 10px; background-color: #1e1e1e; box-shadow: 0 0 10px #00ffcc;">
-                    <div>
-                        <h3 style="margin: 0; color: #00ffcc;">Tile matching(still wokring on it)</h3>
-                        <p style="margin: 5px 0; color: #e6e6e6;">Solve the puzzles.</p>
-                    </div>
-                    <button class="chat-button" style="margin: 0;" onclick="window.location.href='TileGame.html'">Play</button>
-                </div>
-            </div>
-        </section>        
-    </main>
+      <div class="project-card">
+        <h3>ROS 2 TurtleBot Teleop with WASD</h3>
+        <p>Script for controlling a TurtleBot with keyboard input and publishing to <code>cmd_vel</code>.</p>
+        <a href="https://github.com/ru3yy/turtlebot-wasd-teleop">GitHub</a>
+      </div>
 
-    <footer>
-        &copy; 2024 Ruey's Personal Website. All Rights Reserved.
-    </footer>
-    <script data-collect-dnt="true" async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+    </section>
+
+    <section id="resources">
+      <h2>Resources</h2>
+      <p>Coming soon...</p>
+    </section>
+
+    <section id="game">
+      <h2>Game</h2>
+      <p>Interactive game demo coming soon!</p>
+    </section>
+  </main>
 </body>
 </html>
