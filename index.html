@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ruey Yeh</title>
+  <title>Ruey Day</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     :root {
@@ -86,6 +86,34 @@
     .about {
       text-align: center;
     }
+    .experience-card {
+      background-color: var(--blue-accent);
+      padding: 1rem;
+      border-radius: 10px;
+      margin: 1rem 0;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .experience-card i {
+      font-size: 2rem;
+      color: var(--silver);
+    }
+    .experience-details {
+      display: flex;
+      flex-direction: column;
+    }
+    .experience-details .title {
+      font-weight: bold;
+    }
+    .contact-links a {
+      color: var(--white);
+      text-decoration: none;
+      margin-right: 1rem;
+    }
+    .contact-links a:hover {
+      color: var(--silver);
+    }
     @media (max-width: 600px) {
       .nav-primary,
       .nav-secondary {
@@ -108,23 +136,92 @@
       <nav class="nav-secondary">
         <a href="#about">About Me</a>
         <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
   </header>
   <main>
-    <section id="About Me">
-      <h2>About Me</h2>
-      <p>I'm an undergraduate student at the University of Michigan, double majoring in Robotics and Computer Engineering.</p>
-    </section>
-    <section id="Experience">
+    <section id="about">
+        <h2>About Me</h2>
+        <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 2rem;">
+          <div style="flex: 1 1 300px;">
+            <p>
+              I'm an undergraduate student at the University of Michigan, double majoring in Robotics and Computer Engineering.
+            </p>
+            <p style="margin-top: 1rem;">
+              <a href="https://github.com/your-github-username" target="_blank" style="color: var(--silver); display: inline-flex; align-items: center; gap: 0.5rem;">
+                <i class="fab fa-github fa-2x"></i> GitHub
+              </a>
+            </p>
+            <p>
+              <a href="tel:+1234567890" style="color: var(--silver); display: inline-flex; align-items: center; gap: 0.5rem;">
+                <i class="fas fa-phone fa-lg"></i> +1 (234) 567-890
+              </a>
+            </p>
+            <p>
+              <a href="https://yourwebsite.com" target="_blank" style="color: var(--silver); display: inline-flex; align-items: center; gap: 0.5rem;">
+                <i class="fas fa-globe fa-lg"></i> yourwebsite.com
+              </a>
+            </p>
+          </div>
+          <div style="flex: 0 0 150px;">
+            <img src="your-profile.jpg" alt="Profile Photo" class="profile-pic" />
+          </div>
+        </div>
+      </section>
+    <section id="experience">
       <h2>Experience</h2>
-      <p>Your past roles and achievements.</p>
+      <div class="experience-card">
+        <i class="fas fa-university fa-2x"></i>
+        <div class="experience-details">
+          <div class="title">Robotic Engineering Intern</div>
+          <div class="institution">Stryker | Jan 2025 – May 2025</div>
+        </div>
+      </div>
+      <div class="experience-card">
+        <i class="fas fa-university fa-2x"></i>
+        <div class="experience-details">
+          <div class="title">Robotic Engineering Intern</div>
+          <div class="institution">Stryker | Jan 2025 – May 2025</div>
+        </div>
+      </div>
+      <div class="experience-card">
+        <i class="fas fa-university fa-2x"></i>
+        <div class="experience-details">
+          <div class="title">Robotic Engineering Intern</div>
+          <div class="institution">Stryker | Jan 2025 – May 2025</div>
+        </div>
+      </div>
     </section>
-    <section id="Contact">
+    <section id="education">
+        <h2>Education</h2>
+        <div class="experience-card">
+          <i class="fas fa-graduation-cap fa-2x"></i>
+          <div class="experience-details">
+            <div class="title">University of Michigan</div>
+            <div class="institution">B.S.E. in Robotics and Computer Engineering<br>Expected Graduation: May 2026</div>
+          </div>
+        </div>
+    </section>
+    <section id="contact">
       <h2>Contact</h2>
-      <p>Email, socials, or contact form info.</p>
+      <p>
+        <a href="mailto:dummy.email@example.com" style="color: var(--silver); display: inline-flex; align-items: center; gap: 0.5rem;">
+          <i class="fas fa-envelope fa-lg"></i> dummy.email@example.com
+        </a>
+      </p>
+      <div class="contact-links" style="margin-top: 1rem; display: flex; gap: 2rem; align-items: center; flex-wrap: wrap;">
+        <!-- LinkedIn -->
+        <a href="https://www.linkedin.com/in/your-linkedin-username" target="_blank" style="display: inline-flex; align-items: center; gap: 0.5rem; color: var(--silver);">
+          <i class="fab fa-linkedin fa-3x"></i> LinkedIn
+        </a>
+        <!-- X (Twitter) -->
+        <a href="https://twitter.com/your-x-username" target="_blank" style="display: inline-flex; align-items: center; gap: 0.5rem; color: var(--silver);">
+          <i class="fab fa-x-twitter fa-3x"></i> X
+        </a>
+      </div>
     </section>
-  </main>
+  </main>  
 </body>
 </html>
