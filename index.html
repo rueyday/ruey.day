@@ -7,38 +7,62 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     :root {
-      --blue: #3c4f5c;
-      --gray: #777777;
-      --black: #1a1a1a;
+      --blue: #4b6b8a;
+      --gray: #aaaaaa;
+      --black: #111111;
+      --background-black: #1a1a1a;
+      --card-black: #2a2a2a;
       --white: #f5f5f5;
       --silver: #b0b0b0;
-      --blue-accent: #2a3b47;
+      --blue-accent: #3c5a75;
     }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
+
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: var(--black);
+      background-color: var(--background-black);
       color: var(--white);
       line-height: 1.6;
     }
-    header {
-      background-color: var(--gray);
+
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: var(--black);
       color: var(--white);
-      position: relative;
+      z-index: 999;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     }
-    .nav-container {
-      position: relative;
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
     }
+
+    .site-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--white);
+    }
+
     .nav-primary {
       display: flex;
-      justify-content: center;
       gap: 2rem;
-      padding: 1rem 0 0.5rem;
+      justify-content: center;
+      flex: 1;
     }
+
     .nav-primary a,
     .nav-secondary a {
       color: var(--white);
@@ -46,48 +70,59 @@
       font-weight: bold;
       transition: color 0.3s ease;
     }
+
     .nav-primary a:hover,
     .nav-secondary a:hover {
       color: var(--silver);
     }
+
     .nav-secondary {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      background-color: var(--blue-accent);
-      padding: 0.5rem;
-      opacity: 0;
-      visibility: hidden;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      right: 0;
-      transition: opacity 0.3s ease, visibility 0.3s ease;
-      z-index: 1;
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        background-color: var(--blue-accent);
+        padding: 0.5rem;
+        opacity: 0;
+        visibility: hidden;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        pointer-events: none; /* Ignore mouse events when hidden */
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+        z-index: 1;
     }
+
     .nav-container:hover .nav-secondary {
-      opacity: 1;
-      visibility: visible;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
     }
+
     main {
       padding: 2rem;
       max-width: 1000px;
       margin: auto;
+      padding-top: 140px; /* pushes content below fixed header */
     }
+
     h1, h2 {
-      color: var(--silver);
+      color: var(--gray);
     }
+
     img.profile-pic {
       width: 150px;
       border-radius: 50%;
       margin-bottom: 1rem;
-      border: 4px solid var(--silver);
+      border: 4px solid var(--blue);
     }
+
     .about {
       text-align: center;
     }
+
     .experience-card {
-      background-color: var(--blue-accent);
+      background-color: var(--card-black);
       padding: 1rem;
       border-radius: 10px;
       margin: 1rem 0;
@@ -95,76 +130,102 @@
       align-items: center;
       gap: 1rem;
     }
+
     .experience-card i {
       font-size: 2rem;
-      color: var(--silver);
+      color: var(--blue);
     }
+
     .experience-details {
       display: flex;
       flex-direction: column;
     }
+
     .experience-details .title {
       font-weight: bold;
     }
+
     .contact-links a {
       color: var(--white);
       text-decoration: none;
       margin-right: 1rem;
     }
+
     .contact-links a:hover {
-      color: var(--silver);
+      color: var(--blue);
     }
+
     @media (max-width: 600px) {
+        .header-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+        max-width: 1200px;
+        margin: auto;
+        }
       .nav-primary,
       .nav-secondary {
-        flex-direction: column;
-        align-items: center;
-      }
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--blue-accent);
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        padding: 0.5rem;
+        z-index: 1;
+        }
     }
   </style>
 </head>
 <body>
-  <header>
-    <section id="head" class="head">
-      <h1 style="text-align:center;">Ruey Day</h1>
-    </section>
-    <div class="nav-container">
-      <nav class="nav-primary">
-        <a href="/home/index.html">Home</a>
-        <a href="/projects/index.html">Projects</a>
-      </nav>
-      <nav class="nav-secondary">
-        <a href="#about">About Me</a>
-        <a href="#experience">Experience</a>
-        <a href="#education">Education</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
-  </header>
-  <main>
-    <section id="about">
-        <h2>About Me</h2>
-        <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 2rem;">
-          <div style="flex: 1 1 300px;">
-            <p>
-              I'm an undergraduate student at the University of Michigan, double majoring in Robotics and Computer Engineering.
-            </p>
-            <p style="margin-top: 1rem;">
-              <a href="https://github.com/Ruey-Day" target="_blank" style="color: var(--silver); display: inline-flex; align-items: center; gap: 0.5rem;">
-                <i class="fab fa-github fa-2x"></i> GitHub
-              </a>
-            </p>
-            <p>
-              <a href="tel:+1234567890" style="color: var(--silver); display: inline-flex; align-items: center; gap: 0.5rem;">
-                <i class="fas fa-phone fa-lg"></i> +1 (234) 567-890
-              </a>
-            </p>
-          </div>
-          <div style="flex: 0 0 150px;">
-            <img src="headshot.png" alt="Profile Photo" class="profile-pic" />
+    <header class="site-header">
+        <div class="header-inner">
+          <div class="site-title">Ruey Day</div>
+          <div class="nav-container">
+            <nav class="nav-primary">
+              <a href="/home/index.html">Home</a>
+              <a href="/projects/index.html">Projects</a>
+            </nav>
+            <div class="nav-secondary">
+              <a href="#about">About Me</a>
+              <a href="#experience">Experience</a>
+              <a href="#education">Education</a>
+              <a href="#contact">Contact</a>
+            </div>
           </div>
         </div>
-      </section>
+    </header>
+
+  <main>
+    <section id="about">
+      <h2>About Me</h2>
+      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 2rem;">
+        <div style="flex: 1 1 300px;">
+          <p>
+            I'm an undergraduate student at the University of Michigan, double majoring in Robotics and Computer Engineering.
+          </p>
+          <div style="margin-top: 1rem; display: flex; flex-wrap: wrap; gap: 2rem;">
+            <a href="https://github.com/Ruey-Day" target="_blank" style="color: var(--silver); display: inline-flex; align-items: center; gap: 0.5rem;">
+              <i class="fab fa-github fa-2x"></i> GitHub
+            </a>
+            <a href="tel:+1234567890" style="color: var(--silver); display: inline-flex; align-items: center; gap: 0.5rem;">
+              <i class="fas fa-phone fa-lg"></i> +1 (234) 567-890
+            </a>
+          </div>
+        </div>
+        <div style="flex: 0 0 150px;">
+          <img src="headshot.png" alt="Profile Photo" class="profile-pic" />
+        </div>
+      </div>
+    </section>
+
     <section id="experience">
       <h2>Experience</h2>
       <div class="experience-card">
@@ -189,16 +250,18 @@
         </div>
       </div>
     </section>
+
     <section id="education">
-        <h2>Education</h2>
-        <div class="experience-card">
-          <i class="fas fa-graduation-cap fa-2x"></i>
-          <div class="experience-details">
-            <div class="title">University of Michigan</div>
-            <div class="institution">B.S.E. in Robotics and Computer Engineering<br>Expected Graduation: May 2026</div>
-          </div>
+      <h2>Education</h2>
+      <div class="experience-card">
+        <i class="fas fa-graduation-cap fa-2x"></i>
+        <div class="experience-details">
+          <div class="title">University of Michigan</div>
+          <div class="institution">B.S.E. in Robotics and Computer Engineering<br>Expected Graduation: May 2026</div>
         </div>
+      </div>
     </section>
+
     <section id="contact">
       <h2>Contact</h2>
       <p>
@@ -207,16 +270,14 @@
         </a>
       </p>
       <div class="contact-links" style="margin-top: 1rem; display: flex; gap: 2rem; align-items: center; flex-wrap: wrap;">
-        <!-- LinkedIn -->
         <a href="https://www.linkedin.com/in/your-linkedin-username" target="_blank" style="display: inline-flex; align-items: center; gap: 0.5rem; color: var(--white);">
           <i class="fab fa-linkedin fa-3x"></i> LinkedIn
         </a>
-        <!-- X (Twitter) -->
-        <a href="https://twitter.com/your-x-username" target="_blank" style="display: inline-flex; align-items: center; gap: 0.5rem; color: var(--white);">
-          <i class="fab fa-x-twitter fa-3x"></i> X
+        <a href="https://discordapp.com/users/your-discord-id" target="_blank" style="display: inline-flex; align-items: center; gap: 0.5rem; color: var(--white);">
+          <i class="fab fa-discord fa-3x"></i> Discord
         </a>
       </div>
     </section>
-  </main>  
+  </main>
 </body>
 </html>
