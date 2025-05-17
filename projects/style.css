@@ -1,97 +1,150 @@
-.about {
-    text-align: center;
-  }
-  .about-links {
-    display: flex;
-    flex-direction: row; /* Stack links vertically */
-    gap: 4rem;             /* Adds vertical space between links */
-    margin-top: 3rem;        /* Adds spacing above the link section */
-  }
-  .about-links a {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;             /* Adds space between the icon and the text */
-    text-decoration: none;
-    color: var(--white);
-    font-size: 1rem;
-  }
-  .about-links a:hover {
-    color: var(--blue);          /* Optional hover effect */
-  }
-  .about-text::after {
-    content: "";
-    display: block;
-    clear: both;
-  }
-  .profile-pic {
-    width: 180px;
-    border-radius: 25%;
-    border: 4px solid var(--card-black);
-    float: right;
-    margin-left: 3rem;
-    margin-bottom: 0rem;
-    shape-outside: circle(50%);
-  }
-  .experience-card {
-    background-color: var(--card-black);
-    padding: 1rem;
+.slideshow-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 2rem auto;
+    height: 600px;
+    background: var(--card-black);
+    overflow: hidden;
     border-radius: 10px;
-    margin: 1rem 0;
     display: flex;
     align-items: center;
-    gap: 1rem;
+    justify-content: center;
   }
-  .experience-card i {
-    font-size: 2rem;
-  }
-  .experience-details {
-    display: flex;
+  .slide {
+    display: none;
     flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    color: var(--white);
+    position: absolute;
+    top: 0;
+    left: 0;
   }
-  .experience-details .title {
-    font-weight: bold;
+  .slide-in-right {
+    animation: slideInFromRight 0.2s ease;
   }
-  .toggle-buttons {
-    display: flex;
-    gap: 1rem;
+  .slide-in-left {
+    animation: slideInFromLeft 0.2s ease;
+  }
+  .slide-out-left {
+    animation: slideOutToLeft 0.2s forwards;
+  }
+  .slide-out-right {
+    animation: slideOutToRight 0.2s forwards;
+  }
+  @keyframes slideInFromRight {
+    from {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  @keyframes slideInFromLeft {
+    from {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  @keyframes slideOutToLeft {
+    from { transform: translateX(0); opacity: 1; }
+    to   { transform: translateX(-100%); opacity: 0; }
+  }
+  @keyframes slideOutToRight {
+    from { transform: translateX(0); opacity: 1; }
+    to   { transform: translateX(100%); opacity: 0; }
+  }
+  .project-title {
+    font-size: 1.8rem;
     margin-bottom: 1rem;
   }
-  .toggle-buttons button {
-    padding: 0.5rem 1rem;
-    font-weight: bold;
-    border: none;
-    border-radius: 30px;
-    background-color: var(--card-black);
+  .project-description {
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin-bottom: 1rem;
+  }
+  .project-image {
+    width: auto;
+    max-width: 400px;
+    max-height: 200px;
+    object-fit: contain;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+  }
+  .project-recognition {
+    font-size: 1rem;
+    font-style: italic;
+    margin-bottom: 1rem;
+  }
+  .project-links {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+  .project-links a {
     color: var(--white);
-    cursor: pointer;
-    transition: all 0.3s ease;
+    text-decoration: none;
+    font-weight: bold;
     display: flex;
     align-items: center;
     gap: 0.5rem;
   }
-  .toggle-buttons button.active {
-    background-color: var(--blue);
-    transform: scale(1.05);
-    box-shadow: 0 0 10px var(--blue-shadow);
-  }
-  .experience-content {
-    display: none;
-    animation: fadeIn 0.5s ease-in-out forwards;
-  }
-  .experience-content.show {
-    display: block;
-  }
-  .contact-links {
-    margin-top: 2rem;
-    display: flex;
-    gap: 4rem;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  .contact-links i {
-    font-size: 3.5rem;
-  }
-  .contact-links i:hover {
+  .project-links a:hover {
     color: var(--blue);
+  }
+  .prev,
+  .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2.5rem;
+    background: none;
+    border: none;
+    color: var(--white);
+    cursor: pointer;
+    z-index: 10;
+    padding: 1rem;
+  }
+  .prev {
+    left: 0;
+  }
+  .next {
+    right: 0;
+  }
+  .prev:hover,
+  .next:hover {
+    color: var(--blue);
+  }
+  .dot-container {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  .dot {
+    height: 12px;
+    width: 12px;
+    background-color: var(--white);
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  .dot.active {
+    background-color: var(--blue);
   }
   
