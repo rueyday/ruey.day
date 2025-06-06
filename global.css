@@ -111,6 +111,20 @@
       z-index: 1;
     }
   }
+  .school-icon {
+    width: 82px;
+    height: 82px;
+    margin-right: 10px;
+    vertical-align: middle;
+  }
+  .experience-card {
+    display: flex;
+    align-items: center;
+  }
+  .experience-details {
+    display: flex;
+    flex-direction: column;
+  }  
   @keyframes fadeIn {
     from {
       opacity: 0;
