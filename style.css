@@ -82,14 +82,14 @@
     display: block;
   }
   .contact-links {
-    margin-top: 2rem;
+    margin-top: 2.5rem;
     display: flex;
-    gap: 4rem;
+    gap: 5rem;
     flex-wrap: wrap;
     justify-content: center;
   }
   .contact-links i {
-    font-size: 3.5rem;
+    font-size: 4rem;
   }
   .contact-links i:hover {
     color: var(--blue);
