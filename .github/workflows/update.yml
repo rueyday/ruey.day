@@ -18,15 +18,15 @@ jobs:
           python-version: '3.x'
 
       - name: Install dependencies
-        run: pip install requests
+        run: pip install requests && ls
 
       - name: Generate HTML
-        run: python generate_html.py
+        run: python notes/generate_html.py
 
       - name: Commit and push changes
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
           git add index.html
-          git commit -m "Update index.html from Google Sheet" || echo "No changes"
+          git commit -m "Update notes' index.html from Google Sheet" || echo "No changes"
           git push
