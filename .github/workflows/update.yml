@@ -1,0 +1,32 @@
+name: Update HTML from Google Sheet
+
+on:
+  schedule:
+    - cron: '0 0 * * 0'   # every Sunday at 00:00 UTC
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Generate HTML
+        run: python generate_html.py
+
+      - name: Commit and push changes
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add index.html
+          git commit -m "Update index.html from Google Sheet" || echo "No changes"
+          git push

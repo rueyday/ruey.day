@@ -1,0 +1,54 @@
+.area-block {
+    border: 1px solid #2a2a2a;
+    border-radius: 8px;
+    margin: 1rem 0;
+    overflow: hidden;
+  }
+  
+  .area-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #2a2a2a;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+  }
+  
+  .area-header h3 {
+    margin: 0;
+  }
+  
+  .toggle-btn {
+    background: none;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  .topic-list {
+    max-height: 0;
+    overflow: hidden;
+    margin: 0;
+    padding: 0 1rem;
+    list-style: none;
+    transition: max-height 0.3s ease-out;
+  }
+  
+  .topic-list li {
+    margin: 0.5rem 0;
+  }
+  
+  .topic-list a {
+    text-decoration: none;
+    color: #007acc;
+  }
+  
+  .area-block.open .topic-list {
+    max-height: 500px; /* enough to show list */
+    transition: max-height 0.5s ease-in;
+  }
+  
+  .area-block.open .toggle-btn i {
+    transform: rotate(180deg);
+  }
+  
