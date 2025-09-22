@@ -33,23 +33,45 @@
     shape-outside: circle(50%);
   }
   .experience-card {
-    background-color: var(--card-black);
-    padding: 1rem;
-    border-radius: 10px;
-    margin: 1rem 0;
     display: flex;
-    align-items: center;
-    gap: 1rem;
+    align-items: flex-start;
+    margin: 30px 0;
+    border: 1px solid var(--card-black);
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--card-black);
+  }
+  .experience-image {
+    width: 200px;        /* make the photo/logo big */
+    height: auto;
+    object-fit: cover;   /* crop nicely if not exact ratio */
+  }
+  .experience-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* push description to bottom */
+    padding: 15px;
+  }
+  .experience-header {
+    display: flex;
+    flex-direction: column; 
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  .experience-title {
+    font-size: 1.3em;
+    font-weight: bold;
+  }
+  .experience-time {
+    font-size: 1em;
+    text-align: right;
+  }
+  .experience-description {
+    font-size: 0.95em;
   }
   .experience-card i {
     font-size: 2rem;
-  }
-  .experience-details {
-    display: flex;
-    flex-direction: column;
-  }
-  .experience-details .title {
-    font-weight: bold;
   }
   .toggle-buttons {
     display: flex;
