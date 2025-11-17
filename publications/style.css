@@ -1,0 +1,66 @@
+.pub-card {
+  display: flex;
+  align-items: center;
+  padding: 16px 0;
+  margin-top: 20px;
+  gap: 16px;
+}
+
+.pub-thumb {
+  width: 280px;
+  height: 210px;
+  object-fit: cover;
+  border-radius: 10px;
+  background: #333;
+}
+
+.pub-content {
+  flex: 1;
+  color: white;
+  text-align: center;
+}
+
+.pub-title {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: white;
+}
+
+.pub-authors {
+  margin: 8px 0 4px;
+  font-size: 0.9rem;
+  color: white;
+}
+
+.pub-venue {
+  margin: 0;
+  font-size: 0.85rem;
+  color: white;
+}
+
+.pub-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  background: #222;
+  color: white;
+  padding: 10px 14px;
+  font-size: 0.9rem;
+  border-radius: 8px;
+  text-decoration: none;
+  border: 1px solid white;
+  transition: 0.2s;
+  justify-content: center;  /* centers icon+text */
+  align-items: center;
+}
+
+.pub-button i {
+  font-size: 1rem;
+}
+
+.pub-button:hover {
+  background: white;
+  color: black;
+}
