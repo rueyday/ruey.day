@@ -5,7 +5,7 @@
   }
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 140px;
+    scroll-padding-top: 90px;
     font-size: 17px;
   }
   body {
@@ -85,7 +85,7 @@
     padding: 2rem;
     max-width: 1000px;
     margin: auto;
-    padding-top: 140px;
+    padding-top: 90px;
   }
   section {
     margin-top: 2.5rem;
