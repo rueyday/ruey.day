@@ -5,14 +5,13 @@
   }
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 90px;
     font-size: 17px;
   }
   body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: var(--background-black);
     color: var(--white);
-    line-height: 1.6;
+    line-height: 1.5;
   }
   :root {
     --black: #111111;
@@ -85,10 +84,10 @@
     padding: 2rem;
     max-width: 1000px;
     margin: auto;
-    padding-top: 90px;
+    padding-top: 70px;
   }
   section {
-    margin-top: 2.5rem;
+    margin-top: 2rem;
   }
   @media (max-width: 600px) {
     .header-inner {
