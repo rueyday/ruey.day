@@ -116,4 +116,32 @@
   .contact-links i:hover {
     color: var(--blue);
   }
-  
+  #eduExperience.show {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    justify-items: center;
+  }
+  #eduExperience .experience-card {
+    flex-direction: column;
+    text-align: center;
+    max-width: 320px;
+    width: 100%;
+  }
+  #eduExperience .experience-image {
+    width: 200px;
+    height: auto;
+    margin: 1rem auto 0.5rem;
+  }
+  #eduExperience .experience-details {
+    padding: 0.8rem 1.25rem 1.25rem;
+  }
+  #eduExperience .experience-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+  }
+  #eduExperience .institution {
+    font-size: 0.95rem;
+    color: #bbb;
+    margin-top: 0.5rem;
+  }

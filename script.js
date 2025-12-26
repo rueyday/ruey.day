@@ -1,35 +1,30 @@
-const workBtn = document.getElementById('workBtn');
-const eduBtn = document.getElementById('eduBtn');
-const teachBtn = document.getElementById('teachBtn');
-const workContent = document.getElementById('workExperience');
-const eduContent = document.getElementById('eduExperience');
-const teachContent = document.getElementById('teachExperience');
+const tabs = [
+  {
+    button: document.getElementById('workBtn'),
+    content: document.getElementById('workExperience'),
+  },
+  {
+    button: document.getElementById('eduBtn'),
+    content: document.getElementById('eduExperience'),
+  },
+  {
+    button: document.getElementById('teachBtn'),
+    content: document.getElementById('teachExperience'),
+  },
+];
 
-workBtn.addEventListener('click', () => {
-  workBtn.classList.add('active');
-  eduBtn.classList.remove('active');
-  teachBtn.classList.remove('active');
-  workContent.classList.add('show');
-  eduContent.classList.remove('show');
-  teachContent.classList.remove('show');
-});
+tabs.forEach(({ button, content }) => {
+  button.addEventListener('click', () => {
+    // Deactivate all tabs
+    tabs.forEach(t => {
+      t.button.classList.remove('active');
+      t.content.classList.remove('show');
+    });
 
-eduBtn.addEventListener('click', () => {
-  eduBtn.classList.add('active');
-  workBtn.classList.remove('active');
-  teachBtn.classList.remove('active');
-  eduContent.classList.add('show');
-  workContent.classList.remove('show');
-  teachContent.classList.remove('show');
-});
-
-teachBtn.addEventListener('click', () => {
-  teachBtn.classList.add('active');
-  workBtn.classList.remove('active');
-  eduBtn.classList.remove('active');
-  teachContent.classList.add('show');
-  workContent.classList.remove('show');
-  eduContent.classList.remove('show');
+    // Activate selected tab
+    button.classList.add('active');
+    content.classList.add('show');
+  });
 });
 
 document.querySelectorAll('.nav-secondary a').forEach(anchor => {
