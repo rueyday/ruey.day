@@ -42,7 +42,7 @@
     background: var(--card-black);
   }
   .experience-image {
-    width: 200px;        /* make the photo/logo big */
+    width: 160px;        /* make the photo/logo big */
     height: auto;
     object-fit: cover;   /* crop nicely if not exact ratio */
   }
