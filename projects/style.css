@@ -1,149 +1,184 @@
+:root {
+  --reveal-speed: 0.4s;
+  --fade-speed: 0.4s;
+  --reveal-delay: 0.35s;
+}
+
+/* --- Slideshow Container --- */
 .slideshow-container {
-    position: relative;
-    width: 100%;
-    max-width: 1000px;
-    margin: -1rem auto;
-    height: 600px;
-    background: var(--card-black);
-    overflow: hidden;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .slide {
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 0.8rem;
-    width: 100%;
-    height: 100%;
-    box-sizing: border-box;
-    color: var(--white);
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-  .slide-in-right {
-    animation: slideInFromRight 0.35s ease;
-  }
-  .slide-in-left {
-    animation: slideInFromLeft 0.35s ease;
-  }
-  .slide-out-left {
-    animation: slideOutToLeft 0.35s forwards;
-  }
-  .slide-out-right {
-    animation: slideOutToRight 0.35s forwards;
-  }
-  @keyframes slideInFromRight {
-    from {
-      transform: translateX(100%);
-      opacity: 0;
-    }
-    to {
-      transform: translateX(0);
-      opacity: 1;
-    }
-  }
-  @keyframes slideInFromLeft {
-    from {
-      transform: translateX(-100%);
-      opacity: 0;
-    }
-    to {
-      transform: translateX(0);
-      opacity: 1;
-    }
-  }
-  @keyframes slideOutToLeft {
-    from { transform: translateX(0); opacity: 1; }
-    to   { transform: translateX(-100%); opacity: 0; }
-  }
-  @keyframes slideOutToRight {
-    from { transform: translateX(0); opacity: 1; }
-    to   { transform: translateX(100%); opacity: 0; }
-  }
-  .project-title {
-    font-size: 1.8rem;
-    margin-bottom: 0.1rem;
-  }
-  .project-description {
-    font-size: 1.1rem;
-    max-width: 800px;
-    margin-bottom: 0.4rem;
-  }
-  .project-image {
-    width: 75%;
-    height: 360px;
-    object-fit: contain;
-    margin-bottom: 0.8rem;
-    border-radius: 8px;
-  }
-  .project-recognition {
-    font-size: 1rem;
-    font-style: italic;
-    margin-bottom: 0.2rem;
-  }
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  margin: 1rem auto 3rem;
+  height: 600px;
+  background: var(--card-black);
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  clip-path: inset(50% 0 50% 0);
+  transform: scale(0.98);
+  transition: 
+    opacity var(--reveal-speed) ease, 
+    transform var(--reveal-speed) cubic-bezier(0.16, 1, 0.3, 1),
+    clip-path var(--reveal-speed) cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.slideshow-container.reveal-active {
+  opacity: 1;
+  clip-path: inset(0% 0 0% 0%);
+  transform: scale(1);
+}
+
+/* --- Content & Arrow Fade-In --- */
+/* Target slides AND buttons AND dots to all fade in together */
+.slide > *, 
+.prev, 
+.next, 
+.dot-container {
+  opacity: 0;
+  transition: opacity var(--fade-speed) ease;
+}
+
+/* Reveal everything once the card spans out */
+.reveal-active .slide.active > *,
+.reveal-active .prev,
+.reveal-active .next,
+.reveal-active .dot-container {
+  opacity: 1;
+  transition-delay: var(--reveal-delay);
+}
+
+/* --- Arrows Positioning (The Missing Part) --- */
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 3rem;
+  background: none;
+  border: none;
+  color: var(--white);
+  cursor: pointer;
+  z-index: 20; /* Ensure they are above the slides */
+  padding: 1rem;
+  user-select: none;
+  transition: color 0.3s, opacity var(--fade-speed) ease;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+.prev:hover, .next:hover {
+  color: var(--blue);
+}
+
+/* --- Dots Positioning --- */
+.dot-container {
+  position: absolute;
+  bottom: 20px;
+  display: flex;
+  gap: 10px;
+  z-index: 20;
+}
+
+.dot {
+  height: 12px;
+  width: 12px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.dot.active {
+  background-color: var(--blue);
+}
+
+/* --- Slide Layout --- */
+/* --- Slide Animation Classes --- */
+.slide-in-right { animation: slideInRight 0.4s ease-out forwards; }
+.slide-in-left  { animation: slideInLeft 0.4s ease-out forwards; }
+.slide-out-left { animation: slideOutLeft 0.4s ease-out forwards; }
+.slide-out-right { animation: slideOutRight 0.4s ease-out forwards; }
+
+@keyframes slideInRight {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+@keyframes slideInLeft {
+  from { transform: translateX(-100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+@keyframes slideOutLeft {
+  from { transform: translateX(0); opacity: 1; }
+  to { transform: translateX(-100%); opacity: 0; }
+}
+@keyframes slideOutRight {
+  from { transform: translateX(0); opacity: 1; }
+  to { transform: translateX(100%); opacity: 0; }
+}
+
+/* Ensure slides are positioned correctly for sliding */
+.slide {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1.5rem;
+  width: 100%;
+  height: 100%;
+  position: absolute; /* Stacked on top of each other */
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  will-change: transform, opacity;
+}
+
+.slide.active { display: flex; }
+
+.project-image {
+  width: 75%;
+  height: 360px;
+  object-fit: contain;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+}
+
+/* --- Project Links Styling --- */
+.project-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;       /* Increased horizontal spacing between links */
+  margin-top: 1rem;  /* Space between the recognition text and the links */
+  width: 100%;
+}
+
+.project-links a {
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.05rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;       /* Space between the icon and the text */
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.project-links a:hover {
+  color: var(--blue);
+  transform: translateY(-3px);
+}
+
+.project-links i {
+  font-size: 1.2rem;
+}
+
+@media (max-width: 600px) {
   .project-links {
-    display: flex;
-    gap: 2rem;
-    justify-content: center;
-    margin-top: 0.2rem;
+    gap: 1.5rem;
+    flex-wrap: wrap; /* Allows links to move to a new line on small phones */
   }
-  .project-links a {
-    color: var(--white);
-    text-decoration: none;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-  .project-links a:hover {
-    color: var(--blue);
-  }
-  .prev,
-  .next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 5rem;
-    background: none;
-    border: none;
-    color: var(--white);
-    cursor: pointer;
-    z-index: 10;
-    padding: 1rem;
-  }
-  .prev {
-    left: 0;
-  }
-  .next {
-    right: 0;
-  }
-  .prev:hover,
-  .next:hover {
-    color: var(--blue);
-  }
-  .dot-container {
-    position: absolute;
-    bottom: 20px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    gap: 0.5rem;
-  }
-  .dot {
-    height: 12px;
-    width: 12px;
-    background-color: var(--white);
-    border-radius: 50%;
-    display: inline-block;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  .dot.active {
-    background-color: var(--blue);
-  }
-  
+}
