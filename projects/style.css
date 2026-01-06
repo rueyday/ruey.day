@@ -152,7 +152,7 @@
   justify-content: center;
   align-items: center;
   gap: 3rem;       /* Increased horizontal spacing between links */
-  margin-top: 1rem;  /* Space between the recognition text and the links */
+  margin-top: 0.5rem;  /* Space between the recognition text and the links */
   width: 100%;
 }
 
